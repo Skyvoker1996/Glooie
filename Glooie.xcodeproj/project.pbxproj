@@ -7,23 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		843684091EAD51D900CEE6E9 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843684081EAD51D900CEE6E9 /* GlobalConstants.swift */; };
+		8436840E1EAD663900CEE6E9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436840D1EAD663900CEE6E9 /* UIColorExtension.swift */; };
+		843684121EAD6E5D00CEE6E9 /* Art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 843684111EAD6E5D00CEE6E9 /* Art.scnassets */; };
 		8445E2DB1E71C486009656BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445E2DA1E71C486009656BA /* AppDelegate.swift */; };
-		8445E2DD1E71C486009656BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445E2DC1E71C486009656BA /* ViewController.swift */; };
+		8445E2DD1E71C486009656BA /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445E2DC1E71C486009656BA /* ExerciseViewController.swift */; };
 		8445E2E01E71C486009656BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8445E2DE1E71C486009656BA /* Main.storyboard */; };
 		8445E2E31E71C486009656BA /* Glooie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8445E2E11E71C486009656BA /* Glooie.xcdatamodeld */; };
 		8445E2E51E71C486009656BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8445E2E41E71C486009656BA /* Assets.xcassets */; };
 		8445E2E81E71C486009656BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8445E2E61E71C486009656BA /* LaunchScreen.storyboard */; };
+		84B209081EAD72D40040B9CD /* ExercisePresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B209071EAD72D40040B9CD /* ExercisePresentationViewController.swift */; };
+		D87AA1D8A21D1E6D4E32DD05 /* Pods_Glooie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54CE65C899D5FFC8C069174A /* Pods_Glooie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54CE65C899D5FFC8C069174A /* Pods_Glooie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Glooie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57476CDD31E9F345BDD47E1F /* Pods-Glooie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glooie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Glooie/Pods-Glooie.debug.xcconfig"; sourceTree = "<group>"; };
+		843684081EAD51D900CEE6E9 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		8436840D1EAD663900CEE6E9 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		843684111EAD6E5D00CEE6E9 /* Art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Art.scnassets; sourceTree = "<group>"; };
 		8445E2D71E71C486009656BA /* Glooie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glooie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8445E2DA1E71C486009656BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8445E2DC1E71C486009656BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8445E2DC1E71C486009656BA /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		8445E2DF1E71C486009656BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8445E2E21E71C486009656BA /* Glooie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Glooie.xcdatamodel; sourceTree = "<group>"; };
 		8445E2E41E71C486009656BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8445E2E71E71C486009656BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8445E2E91E71C486009656BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84B209071EAD72D40040B9CD /* ExercisePresentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisePresentationViewController.swift; sourceTree = "<group>"; };
+		C3E75CFAF91EA7FECB630292 /* Pods-Glooie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glooie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Glooie/Pods-Glooie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D87AA1D8A21D1E6D4E32DD05 /* Pods_Glooie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		618782BB37A24440C489066A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				54CE65C899D5FFC8C069174A /* Pods_Glooie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8436840A1EAD51F600CEE6E9 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				8445E2DA1E71C486009656BA /* AppDelegate.swift */,
+				8445E2E41E71C486009656BA /* Assets.xcassets */,
+				8445E2E61E71C486009656BA /* LaunchScreen.storyboard */,
+				8445E2E91E71C486009656BA /* Info.plist */,
+				843684111EAD6E5D00CEE6E9 /* Art.scnassets */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		8436840B1EAD5C5900CEE6E9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8445E2DE1E71C486009656BA /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		8436840C1EAD655C00CEE6E9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8436840D1EAD663900CEE6E9 /* UIColorExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		8445E2CE1E71C485009656BA = {
 			isa = PBXGroup;
 			children = (
 				8445E2D91E71C486009656BA /* Glooie */,
 				8445E2D81E71C486009656BA /* Products */,
+				BDB4E5EBF3D39DA87C243E21 /* Pods */,
+				618782BB37A24440C489066A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +107,32 @@
 		8445E2D91E71C486009656BA /* Glooie */ = {
 			isa = PBXGroup;
 			children = (
-				8445E2DA1E71C486009656BA /* AppDelegate.swift */,
-				8445E2DC1E71C486009656BA /* ViewController.swift */,
-				8445E2DE1E71C486009656BA /* Main.storyboard */,
-				8445E2E41E71C486009656BA /* Assets.xcassets */,
-				8445E2E61E71C486009656BA /* LaunchScreen.storyboard */,
-				8445E2E91E71C486009656BA /* Info.plist */,
+				8436840C1EAD655C00CEE6E9 /* Extensions */,
+				843684081EAD51D900CEE6E9 /* GlobalConstants.swift */,
+				84B209061EAD72A20040B9CD /* ViewControllers */,
+				8436840B1EAD5C5900CEE6E9 /* Storyboards */,
+				8436840A1EAD51F600CEE6E9 /* Support */,
 				8445E2E11E71C486009656BA /* Glooie.xcdatamodeld */,
 			);
 			path = Glooie;
+			sourceTree = "<group>";
+		};
+		84B209061EAD72A20040B9CD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8445E2DC1E71C486009656BA /* ExerciseViewController.swift */,
+				84B209071EAD72D40040B9CD /* ExercisePresentationViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BDB4E5EBF3D39DA87C243E21 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57476CDD31E9F345BDD47E1F /* Pods-Glooie.debug.xcconfig */,
+				C3E75CFAF91EA7FECB630292 /* Pods-Glooie.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +142,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8445E2EC1E71C486009656BA /* Build configuration list for PBXNativeTarget "Glooie" */;
 			buildPhases = (
+				5BA9C691BF858DBEB5A37A35 /* [CP] Check Pods Manifest.lock */,
 				8445E2D31E71C485009656BA /* Sources */,
 				8445E2D41E71C485009656BA /* Frameworks */,
 				8445E2D51E71C485009656BA /* Resources */,
+				DB294EA5AEA4D54F4F7C32B2 /* [CP] Embed Pods Frameworks */,
+				3DE283F1FA40EB252AC8DC4A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,10 +201,59 @@
 				8445E2E81E71C486009656BA /* LaunchScreen.storyboard in Resources */,
 				8445E2E51E71C486009656BA /* Assets.xcassets in Resources */,
 				8445E2E01E71C486009656BA /* Main.storyboard in Resources */,
+				843684121EAD6E5D00CEE6E9 /* Art.scnassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3DE283F1FA40EB252AC8DC4A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Glooie/Pods-Glooie-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BA9C691BF858DBEB5A37A35 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DB294EA5AEA4D54F4F7C32B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Glooie/Pods-Glooie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8445E2D31E71C485009656BA /* Sources */ = {
@@ -141,7 +261,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8445E2E31E71C486009656BA /* Glooie.xcdatamodeld in Sources */,
-				8445E2DD1E71C486009656BA /* ViewController.swift in Sources */,
+				8445E2DD1E71C486009656BA /* ExerciseViewController.swift in Sources */,
+				8436840E1EAD663900CEE6E9 /* UIColorExtension.swift in Sources */,
+				843684091EAD51D900CEE6E9 /* GlobalConstants.swift in Sources */,
+				84B209081EAD72D40040B9CD /* ExercisePresentationViewController.swift in Sources */,
 				8445E2DB1E71C486009656BA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +386,7 @@
 		};
 		8445E2ED1E71C486009656BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57476CDD31E9F345BDD47E1F /* Pods-Glooie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B82XL49ZWS;
@@ -276,6 +400,7 @@
 		};
 		8445E2EE1E71C486009656BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3E75CFAF91EA7FECB630292 /* Pods-Glooie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B82XL49ZWS;
@@ -306,6 +431,7 @@
 				8445E2EE1E71C486009656BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
