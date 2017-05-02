@@ -8,28 +8,66 @@
 
 import UIKit
 
-class ExerciseViewController: UIViewController {
+class ExerciseViewController: UITableViewController {
+        
+    var dataSource = ["", "", "", "", ""]
     
-    @IBOutlet weak var tableView: UITableView!
-
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        navigationItem.leftBarButtonItem = editButtonItem
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
+        switch segue.identifier ?? String() {
+            
+        case Segues.exerciseDescription.rawValue:
+            if let _ = segue.destination as? ExerciseDescriptionViewController {
+                
+                let backItem = UIBarButtonItem()
+                backItem.title = "Back"
+                backItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white as Any], for: .normal)
+                navigationItem.backBarButtonItem = backItem
+                
+                //vc.exerciseDescription = ""
+            }
+        default:
+            break
+        }
     }
 }
 
-extension ExerciseViewController: UITableViewDataSource {
+extension ExerciseViewController {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        switch editingStyle {
+        
+        case .delete:
+            
+            dataSource.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        default:
+            break
+        }
+    }
+}
+
+extension ExerciseViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.exerciseCell.rawValue, for: indexPath)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Cells.exerciseCell.rawValue, for: indexPath) as? ExerciseDescriptionTableViewCell {
         
-        return cell
+            return cell
+        }
+        
+        return UITableViewCell()
     }
 
 }
