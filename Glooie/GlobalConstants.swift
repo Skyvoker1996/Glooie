@@ -26,6 +26,11 @@ enum Cells: String {
     case movementTypeCell = "movementTypeCell"
 }
 
+enum ViewNames: String {
+    
+    case newExercisePickerView = "NewExercisePickerView"
+}
+
 enum NodeNames: String {
     
     case rig = "rig"
