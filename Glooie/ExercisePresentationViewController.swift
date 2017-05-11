@@ -19,8 +19,11 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
     
     let readinessAnimation = Assets.animation(named: .readiness)
     let restingAnimation = Assets.animation(named: .resting)
+    let jumpAnimation = Assets.animation(named: .jump)
+    let catchBallGroundAnimation = Assets.animation(named: .catchBallNearGround)
     
     var goalkeeperRig: SCNNode!
+    
     let scnScene: SCNScene = Assets.scene(named: .main)
     let testScene = SCNScene(named: "SceneKit Scene.scn")
     
@@ -48,7 +51,8 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
 
         setupUI()
         setupScene()
-        setupGestureRecognizer()
+        //setupGestureRecognizer()
+        // Comment to enter demo mode
         //setupNodes()
     }
 
@@ -74,21 +78,21 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
         navigationItem.rightBarButtonItem = createBarButtonItem
     }
     
-    func setupGestureRecognizer() {
-        
-        let gr = UITapGestureRecognizer(target: self, action: #selector(addAnimation(recognizer:)))
-        
-        gr.delegate = self
-        gr.numberOfTapsRequired = 2
-        scnView.addGestureRecognizer(gr)
-    }
+//    func setupGestureRecognizer() {
+//        
+//        let gr = UITapGestureRecognizer(target: self, action: #selector(addAnimation(recognizer:)))
+//        
+//        gr.delegate = self
+//        gr.numberOfTapsRequired = 2
+//        scnView.addGestureRecognizer(gr)
+//    }
     
     func setupScene() {
     
-        
-        //scnView.scene = scnScene
+        // Change to enter demo mode
+      //  scnView.scene = scnScene
         scnView.scene = testScene
-        
+        //scnView.delegate = self
         scnView.allowsCameraControl = true
         scnView.showsStatistics = true
         scnView.preferredFramesPerSecond = 24
@@ -111,27 +115,46 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
         editingMode = false
     }
     
-    func addAnimation(recognizer: UIGestureRecognizer) {
+    func addAnimations() {
         
-        print("gesture has been recognized")
-       
-        animationHelper.playAnimations([restingAnimation, readinessAnimation,restingAnimation], attachedTo: goalkeeperRig) {
-            
-            print("Finished playing animations")
-        }
         
-        let animations = Array<CAAnimation>(repeating: readinessAnimation, count: 3)
+        let animations = Array<CAAnimation>(repeating: jumpAnimation, count: 2)
         
         var animationsSequence: [CAAnimation] = []
         
         animationsSequence.append(contentsOf: animations)
         
+        print("🍐 Start positon \(goalkeeperRig.presentation.position)")
+        
+        animationHelper.playAnimations(animations, attachedTo: goalkeeperRig) {
+            
+            print("🍐 Finish positon \(self.goalkeeperRig.presentation.position)")
+            print("Finished playing animations")
+        }
+        
+//        let waitAnimation = SCNAction.wait(duration: 25/24)
+//        let moveAnimation = SCNAction.move(by: SCNVector3(0, -2.485, 0), duration: 16/24)
+//        let moveAnimation = SCNAction.move(by: SCNVector3(0, -2.485, 0), duration: 10)
+//        
+//        let group = SCNAction.group([moveAnimation])
+//        mountNode.runAction(group)
+        
+        
         print("We have \(animationsSequence.count) more to play")
     }
+    
+    // MARK: - Actions
     
     @IBAction func animationProcessHandling(_ sender: UIButton) {
         
         sender.isSelected = !sender.isSelected
+        
+        switch sender.isSelected {
+        case true:
+            addAnimations()
+        case false:
+            scnScene.isPaused = true
+        }
     }
     
     @IBAction func showAvailableAnimations(_ sender: UILongPressGestureRecognizer) {
@@ -161,3 +184,16 @@ extension ExercisePresentationViewController: NewExerciseDelegate {
         editingMode = isCreated
     }
 }
+
+//extension ExercisePresentationViewController: SCNSceneRendererDelegate {
+//    
+//    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+//        
+//        
+//    }
+//    
+//    func renderer(_ renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: TimeInterval) {
+//        
+//        renderer.scene
+//    }
+//}

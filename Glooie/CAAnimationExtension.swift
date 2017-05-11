@@ -26,9 +26,12 @@ extension CAAnimation {
             fatalError("Failed to find animation named \(name).")
         }
         
+        foundAnimation.isRemovedOnCompletion = false
+        
+        //foundAnimation.fillMode = kCAFillModeForwards
         foundAnimation.fadeInDuration = 0.6
         foundAnimation.fadeOutDuration = 0.6
-        foundAnimation.repeatCount = 3
+        foundAnimation.repeatCount = 1
         
         return foundAnimation
     }

@@ -7,6 +7,7 @@
 //
 
 import SceneKit
+import SwiftyJSON
 
 struct Assets {
     
@@ -33,5 +34,14 @@ struct Assets {
             fatalError("Failed to load node \(name).")
         }
         return node
+    }
+    
+    static func data(from plistFile: String) -> JSON {
+    
+        guard let path = Bundle.main.path(forResource: plistFile, ofType: "plist"), let dict = NSDictionary(contentsOfFile: path) else {
+            return []
+        }
+        
+        return JSON(dictionary: dict)
     }
 }

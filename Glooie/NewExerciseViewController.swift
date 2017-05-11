@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 protocol NewExerciseDelegate: class {
     
@@ -20,6 +21,8 @@ class NewExerciseViewController: BasicViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     
     weak var delegate: NewExerciseDelegate?
+    
+    let exerciseTypes: [ExerciseType] = Assets.data(from: "ExerciseTypes")["exerciseTypes"].arrayValue.map { ExerciseType(json: $0)}
     
     let textViewPlaceholder = "Enter exercise description"
     
@@ -64,6 +67,8 @@ extension NewExerciseViewController: UIPickerViewDelegate {
         guard let view = view else {
             
             let reusableView = Bundle.main.loadNibNamed(ViewNames.newExercisePickerView.rawValue, owner: self, options: nil)?.first as? NewExercisePickerView
+            
+            reusableView?.exercise = exerciseTypes[row]
             return reusableView ?? UIView()
         }
         
@@ -78,7 +83,7 @@ extension NewExerciseViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 6
+        return exerciseTypes.count
     }
 }
 

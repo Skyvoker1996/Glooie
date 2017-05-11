@@ -14,6 +14,7 @@ class EditBarCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var anumationTitleLabel: UILabel!
     @IBOutlet weak var visualEffect: UIVisualEffectView!
     @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var stackView: UIStackView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

@@ -29,12 +29,16 @@ class AnimationHelper {
                 case true:
                     self.playAnimations(animationsToUse, attachedTo: node, completion: completion)
                 case false:
-                    node.removeAllAnimations()
+                    //node.removeAllAnimations()
                     completion?()
                 }
             }
             
             node.addAnimation(animation, forKey: nil)
+            
+            let moveAnimation = SCNAction.move(by: SCNVector3(0, -2.485, 0), duration: 50/30)
+            moveAnimation.timingMode = .easeIn
+            node.runAction(moveAnimation)
             
             SCNTransaction.commit()
         }

@@ -10,6 +10,7 @@ import UIKit
 
 struct GlobalConfig {
     
+    static let AnimationFPS: Double = 24
     static let StoryboardName = "Main"
     static let NavBarAttributes = [NSForegroundColorAttributeName: UIColor.white as Any, NSFontAttributeName: UIFont.systemFont(ofSize: 18, weight: UIFontWeightRegular) as Any]
 }
@@ -34,18 +35,32 @@ enum ViewNames: String {
 enum NodeNames: String {
     
     case rig = "rig"
+    case root = "root"
 }
 
 enum SceneNames: String {
     
-    case main = "Goalkeeper animated experements.dae"
+    case main = "Goalkeeper animated experements copy.scn"//"Goalkeeper animated experements.dae"
 
+}
+
+enum DirectionNames: String {
+    
+    case leftDown
+    case leftTop
+    case rightDown
+    case rightTop
+    case up
+    case down
 }
 
 enum AnimationNames: String {
     
     case resting = "resting.dae"
     case readiness = "readiness.dae"
+    case jump_forward = "jump forward.dae"
+    case jump = "jump.dae"
+    case catchBallNearGround = "catch ball near the ground (standing on knees)_left.dae"
 }
 
 enum Segues: String {
