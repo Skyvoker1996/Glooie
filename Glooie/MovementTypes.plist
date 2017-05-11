@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>types</key>
+	<array>
+		<dict>
+			<key>type</key>
+			<string>Jumps</string>
+			<key>image</key>
+			<string>jump filled</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>Positions</string>
+			<key>image</key>
+			<string>position</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>Special motions</string>
+			<key>image</key>
+			<string>special movement</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>Locations of ball catch</string>
+			<key>image</key>
+			<string></string>
+			<key>directions</key>
+			<array>
+				<string>middle</string>
+				<string>leftDown</string>
+				<string>leftTop</string>
+				<string>rightDown</string>
+				<string>rightTop</string>
+				<string>down</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

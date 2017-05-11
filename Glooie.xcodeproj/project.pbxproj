@@ -10,6 +10,9 @@
 		843684091EAD51D900CEE6E9 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843684081EAD51D900CEE6E9 /* GlobalConstants.swift */; };
 		8436840E1EAD663900CEE6E9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436840D1EAD663900CEE6E9 /* UIColorExtension.swift */; };
 		843684121EAD6E5D00CEE6E9 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 843684111EAD6E5D00CEE6E9 /* art.scnassets */; };
+		843738B51EC4D33B0082A583 /* DirectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843738B41EC4D33B0082A583 /* DirectionCollectionViewCell.swift */; };
+		843738B71EC4EF8B0082A583 /* MovementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843738B61EC4EF8B0082A583 /* MovementType.swift */; };
+		843738B91EC4F2C10082A583 /* MovementTypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 843738B81EC4F2C10082A583 /* MovementTypes.plist */; };
 		8445E2DB1E71C486009656BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445E2DA1E71C486009656BA /* AppDelegate.swift */; };
 		8445E2DD1E71C486009656BA /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445E2DC1E71C486009656BA /* ExerciseViewController.swift */; };
 		8445E2E01E71C486009656BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8445E2DE1E71C486009656BA /* Main.storyboard */; };
@@ -34,7 +37,7 @@
 		84C018691EC4909A00350D06 /* ExerciseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C018681EC4909A00350D06 /* ExerciseType.swift */; };
 		84C0186B1EC49C3600350D06 /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C0186A1EC49C3600350D06 /* Movement.swift */; };
 		84C0186D1EC49F1400350D06 /* SCNVector3Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C0186C1EC49F1400350D06 /* SCNVector3Extension.swift */; };
-		84C0186F1EC4AA8A00350D06 /* Animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84C0186E1EC4AA8A00350D06 /* Animations.plist */; };
+		84C0186F1EC4AA8A00350D06 /* Movements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84C0186E1EC4AA8A00350D06 /* Movements.plist */; };
 		84C018711EC4C78900350D06 /* MovementTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C018701EC4C78900350D06 /* MovementTypeTableViewCell.swift */; };
 		84D31B701EB2BFC500F126C9 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D31B6F1EB2BFC500F126C9 /* AssetManager.swift */; };
 		84EF56441EAEA99800A38ADB /* CAAnimationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF56431EAEA99800A38ADB /* CAAnimationExtension.swift */; };
@@ -47,6 +50,9 @@
 		843684081EAD51D900CEE6E9 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		8436840D1EAD663900CEE6E9 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		843684111EAD6E5D00CEE6E9 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		843738B41EC4D33B0082A583 /* DirectionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		843738B61EC4EF8B0082A583 /* MovementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementType.swift; sourceTree = "<group>"; };
+		843738B81EC4F2C10082A583 /* MovementTypes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MovementTypes.plist; sourceTree = "<group>"; };
 		8445E2D71E71C486009656BA /* Glooie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glooie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8445E2DA1E71C486009656BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8445E2DC1E71C486009656BA /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +79,7 @@
 		84C018681EC4909A00350D06 /* ExerciseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseType.swift; sourceTree = "<group>"; };
 		84C0186A1EC49C3600350D06 /* Movement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movement.swift; sourceTree = "<group>"; };
 		84C0186C1EC49F1400350D06 /* SCNVector3Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNVector3Extension.swift; sourceTree = "<group>"; };
-		84C0186E1EC4AA8A00350D06 /* Animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Animations.plist; sourceTree = "<group>"; };
+		84C0186E1EC4AA8A00350D06 /* Movements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Movements.plist; sourceTree = "<group>"; };
 		84C018701EC4C78900350D06 /* MovementTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementTypeTableViewCell.swift; sourceTree = "<group>"; };
 		84D31B6F1EB2BFC500F126C9 /* AssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
 		84EF56431EAEA99800A38ADB /* CAAnimationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAAnimationExtension.swift; sourceTree = "<group>"; };
@@ -181,6 +187,7 @@
 				849E7BE01EB6409400F8E98C /* ExerciseDescriptionTableViewCell.swift */,
 				849E7BF01EB7C9CF00F8E98C /* EditBarCollectionViewCell.swift */,
 				84C018701EC4C78900350D06 /* MovementTypeTableViewCell.swift */,
+				843738B41EC4D33B0082A583 /* DirectionCollectionViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -220,7 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				84C018651EC48F0600350D06 /* ExerciseTypes.plist */,
-				84C0186E1EC4AA8A00350D06 /* Animations.plist */,
+				84C0186E1EC4AA8A00350D06 /* Movements.plist */,
+				843738B81EC4F2C10082A583 /* MovementTypes.plist */,
 			);
 			name = Configurations;
 			sourceTree = "<group>";
@@ -230,6 +238,7 @@
 			children = (
 				84C018681EC4909A00350D06 /* ExerciseType.swift */,
 				84C0186A1EC49C3600350D06 /* Movement.swift */,
+				843738B61EC4EF8B0082A583 /* MovementType.swift */,
 			);
 			name = "Data models";
 			sourceTree = "<group>";
@@ -328,9 +337,10 @@
 				8445E2E81E71C486009656BA /* LaunchScreen.storyboard in Resources */,
 				849E7BE51EB68AE100F8E98C /* SceneKit Scene.scn in Resources */,
 				8445E2E51E71C486009656BA /* assets.xcassets in Resources */,
+				843738B91EC4F2C10082A583 /* MovementTypes.plist in Resources */,
 				8445E2E01E71C486009656BA /* Main.storyboard in Resources */,
 				8463885C1EBCB28C00DA84BC /* NewExercisePickerView.xib in Resources */,
-				84C0186F1EC4AA8A00350D06 /* Animations.plist in Resources */,
+				84C0186F1EC4AA8A00350D06 /* Movements.plist in Resources */,
 				84C018661EC48F0600350D06 /* ExerciseTypes.plist in Resources */,
 				843684121EAD6E5D00CEE6E9 /* art.scnassets in Resources */,
 			);
@@ -393,6 +403,7 @@
 			files = (
 				844708C61EB8D4BE00097047 /* AvailableAnimationsViewController.swift in Sources */,
 				84D31B701EB2BFC500F126C9 /* AssetManager.swift in Sources */,
+				843738B71EC4EF8B0082A583 /* MovementType.swift in Sources */,
 				849E7BE91EB69BA500F8E98C /* BasicViewController.swift in Sources */,
 				849E7BE31EB6750300F8E98C /* ExerciseDescriptionViewController.swift in Sources */,
 				8445E2E31E71C486009656BA /* Glooie.xcdatamodeld in Sources */,
@@ -403,6 +414,7 @@
 				849E7BE11EB6409400F8E98C /* ExerciseDescriptionTableViewCell.swift in Sources */,
 				844708C81EB8DD3C00097047 /* AvaliableMovementsTableViewController.swift in Sources */,
 				84C0186D1EC49F1400350D06 /* SCNVector3Extension.swift in Sources */,
+				843738B51EC4D33B0082A583 /* DirectionCollectionViewCell.swift in Sources */,
 				843684091EAD51D900CEE6E9 /* GlobalConstants.swift in Sources */,
 				84B209081EAD72D40040B9CD /* ExercisePresentationViewController.swift in Sources */,
 				8445E2DB1E71C486009656BA /* AppDelegate.swift in Sources */,

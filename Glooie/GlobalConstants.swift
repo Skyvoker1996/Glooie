@@ -25,6 +25,7 @@ enum Cells: String {
     case editBarCollectionCell = "editBarCell"
     case exerciseCell = "exerciseCell"
     case movementTypeCell = "movementTypeCell"
+    case directionCollectionCell = "directionCollectionCell"
 }
 
 enum ViewNames: String {
@@ -52,6 +53,10 @@ enum DirectionNames: String {
     case rightTop
     case up
     case down
+    case forward
+    case backward
+    case middle
+    case none
 }
 
 enum AnimationNames: String {
@@ -67,6 +72,7 @@ enum Segues: String {
     
     case exerciseDescription = "showExerciseDescription"
     case newExercise = "showNewExerciseFormSheet"
+    case movements = "showMovement"
 }
 
 struct ExercisePresentationConstants {

@@ -13,7 +13,7 @@ class Movement {
     
     let name: String
     let duration: Measurement<UnitDuration>
-    let movementType: String
+    let movementType: MovementType.Types
     let animationName: AnimationNames
     let isMovable: Bool
     let transition: SCNVector3?
@@ -25,7 +25,7 @@ class Movement {
         
         name = json["name"].stringValue
         amountOfFrames = json["amountOfFrames"].doubleValue
-        movementType = json["movementType"].stringValue
+        movementType = MovementType.Types(rawValue: json["movementType"].stringValue) ?? .none
         duration = Measurement(value: amountOfFrames/GlobalConfig.AnimationFPS, unit: .seconds)
         animationName = AnimationNames(rawValue: json["animationName"].stringValue) ?? .resting
         isMovable = json["isMovable"].boolValue

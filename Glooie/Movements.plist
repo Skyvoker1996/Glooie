@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>movements</key>
+	<array>
+		<dict>
+			<key>compatibleMovements</key>
+			<array>
+				<string></string>
+			</array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<real>-2.485</real>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<true/>
+			<key>animationName</key>
+			<string>jump forward</string>
+			<key>movementType</key>
+			<string>Jumps</string>
+			<key>amountOfFrames</key>
+			<integer>59</integer>
+			<key>name</key>
+			<string>Bacis jump</string>
+			<key>directionName</key>
+			<string>forward</string>
+		</dict>
+	</array>
+</dict>
+</plist>
