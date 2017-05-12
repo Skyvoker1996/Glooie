@@ -7,7 +7,8 @@
 		<dict>
 			<key>compatibleMovements</key>
 			<array>
-				<string></string>
+				<string>stand on knees</string>
+				<string>sidestep</string>
 			</array>
 			<key>transition</key>
 			<dict>
@@ -27,10 +28,170 @@
 			<key>amountOfFrames</key>
 			<integer>59</integer>
 			<key>name</key>
-			<string>Bacis jump</string>
+			<string>Basic jump</string>
 			<key>directionName</key>
 			<string>forward</string>
 		</dict>
+        <dict>
+            <key>compatibleMovements</key>
+            <array>
+                <string>stand on knees</string>
+                <string>sidestep</string>
+            </array>
+            <key>transition</key>
+            <dict>
+                <key>x</key>
+                <integer>0</integer>
+                <key>y</key>
+                <real>0</real>
+                <key>z</key>
+                <integer>0</integer>
+            </dict>
+            <key>isMovable</key>
+            <false/>
+            <key>animationName</key>
+            <string>readiness</string>
+            <key>movementType</key>
+            <string>Positions</string>
+            <key>amountOfFrames</key>
+            <integer>25</integer>
+            <key>name</key>
+            <string>Readiness</string>
+        </dict>
+        <dict>
+            <key>compatibleMovements</key>
+            <array>
+                <string>stand on knees</string>
+                <string>sidestep</string>
+            </array>
+            <key>transition</key>
+            <dict>
+                <key>x</key>
+                <integer>0</integer>
+                <key>y</key>
+                <real>-4.7</real>
+                <key>z</key>
+                <integer>0</integer>
+            </dict>
+            <key>isMovable</key>
+            <true/>
+            <key>animationName</key>
+            <string>somersault</string>
+            <key>movementType</key>
+            <string>Special motions</string>
+            <key>amountOfFrames</key>
+            <integer>68</integer>
+            <key>name</key>
+            <string>Somersault</string>
+            <key>directionName</key>
+            <string>forward</string>
+        </dict>
+        <dict>
+            <key>compatibleMovements</key>
+            <array>
+                <string>stand on knees</string>
+                <string>sidestep</string>
+            </array>
+            <key>transition</key>
+            <dict>
+                <key>x</key>
+                <integer>0</integer>
+                <key>y</key>
+                <real>0</real>
+                <key>z</key>
+                <integer>0</integer>
+            </dict>
+            <key>isMovable</key>
+            <false/>
+            <key>animationName</key>
+            <string>stand on knees</string>
+            <key>movementType</key>
+            <string>Positions</string>
+            <key>amountOfFrames</key>
+            <integer>56</integer>
+            <key>name</key>
+            <string>Stand on knees</string>
+        </dict>
+        <dict>
+            <key>compatibleMovements</key>
+            <array>
+                <string>stand on knees</string>
+                <string>sidestep</string>
+            </array>
+            <key>transition</key>
+            <dict>
+                <key>x</key>
+                <real>-1.93779</real>
+                <key>y</key>
+                <integer>0</integer>
+                <key>z</key>
+                <integer>0</integer>
+            </dict>
+            <key>isMovable</key>
+            <true/>
+            <key>animationName</key>
+            <string>sidestep_right</string>
+            <key>movementType</key>
+            <string>Special motions</string>
+            <key>amountOfFrames</key>
+            <integer>33</integer>
+            <key>name</key>
+            <string>Sidestep</string>
+            <key>directionName</key>
+            <string>right</string>
+        </dict>
+        <dict>
+            <key>compatibleMovements</key>
+            <array>
+                <string>stand on knees</string>
+                <string>sidestep</string>
+            </array>
+            <key>transition</key>
+            <dict>
+                <key>x</key>
+                <real>1.93779</real>
+                <key>y</key>
+                <integer>0</integer>
+                <key>z</key>
+                <integer>0</integer>
+            </dict>
+            <key>isMovable</key>
+            <true/>
+            <key>animationName</key>
+            <string>sidestep_right</string>
+            <key>movementType</key>
+            <string>Special motions</string>
+            <key>amountOfFrames</key>
+            <integer>33</integer>
+            <key>name</key>
+            <string>Sidestep</string>
+            <key>directionName</key>
+            <string>left</string>
+        </dict>
+        <dict>
+            <key>compatibleMovements</key>
+            <array>
+                <string>stand on knees</string>
+                <string>sidestep</string>
+            </array>
+            <key>transition</key>
+            <dict>
+                <key>x</key>
+                <integer>0</integer>
+                <key>y</key>
+                <integer>0</integer>
+                <key>z</key>
+                <integer>0</integer>
+            </dict>
+            <key>isMovable</key>
+            <false/>
+            <key>animationName</key>
+            <string>resting</string>
+            <key>amountOfFrames</key>
+            <integer>80</integer>
+            <key>name</key>
+            <string>Resting</string>
+        </dict>
 	</array>
 </dict>
 </plist>

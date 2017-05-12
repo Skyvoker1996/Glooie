@@ -48,10 +48,6 @@ extension AvailableAnimationsViewController: UITableViewDataSource {
 
     // MARK: - Table view data source
     
-    /*func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return movementTypes[indexPath.row].type == .catchLocation ? 135 : 44
-    }*/
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return movementTypes.count

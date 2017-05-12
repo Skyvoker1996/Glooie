@@ -26,6 +26,9 @@ enum Cells: String {
     case exerciseCell = "exerciseCell"
     case movementTypeCell = "movementTypeCell"
     case directionCollectionCell = "directionCollectionCell"
+    case movementSelectionCollectionCell = "movementSelectionCell"
+    case contentCollectionCell = "contentCell"
+    case movementCell = "movementCell"
 }
 
 enum ViewNames: String {
@@ -56,6 +59,8 @@ enum DirectionNames: String {
     case forward
     case backward
     case middle
+    case left
+    case right
     case none
 }
 
@@ -63,7 +68,6 @@ enum AnimationNames: String {
     
     case resting = "resting.dae"
     case readiness = "readiness.dae"
-    case jump_forward = "jump forward.dae"
     case jump = "jump.dae"
     case catchBallNearGround = "catch ball near the ground (standing on knees)_left.dae"
 }

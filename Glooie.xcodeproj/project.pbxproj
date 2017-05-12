@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841FE6081EC51CD300511D32 /* MovementSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841FE6071EC51CD300511D32 /* MovementSelectionCollectionViewCell.swift */; };
+		841FE60A1EC51D2E00511D32 /* MovementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841FE6091EC51D2E00511D32 /* MovementTableViewCell.swift */; };
 		843684091EAD51D900CEE6E9 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843684081EAD51D900CEE6E9 /* GlobalConstants.swift */; };
 		8436840E1EAD663900CEE6E9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436840D1EAD663900CEE6E9 /* UIColorExtension.swift */; };
 		843684121EAD6E5D00CEE6E9 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 843684111EAD6E5D00CEE6E9 /* art.scnassets */; };
@@ -47,6 +49,8 @@
 /* Begin PBXFileReference section */
 		54CE65C899D5FFC8C069174A /* Pods_Glooie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Glooie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57476CDD31E9F345BDD47E1F /* Pods-Glooie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glooie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Glooie/Pods-Glooie.debug.xcconfig"; sourceTree = "<group>"; };
+		841FE6071EC51CD300511D32 /* MovementSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		841FE6091EC51D2E00511D32 /* MovementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementTableViewCell.swift; sourceTree = "<group>"; };
 		843684081EAD51D900CEE6E9 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		8436840D1EAD663900CEE6E9 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		843684111EAD6E5D00CEE6E9 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 				849E7BF01EB7C9CF00F8E98C /* EditBarCollectionViewCell.swift */,
 				84C018701EC4C78900350D06 /* MovementTypeTableViewCell.swift */,
 				843738B41EC4D33B0082A583 /* DirectionCollectionViewCell.swift */,
+				841FE6071EC51CD300511D32 /* MovementSelectionCollectionViewCell.swift */,
+				841FE6091EC51D2E00511D32 /* MovementTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -421,10 +427,12 @@
 				849E7BED1EB7A04F00F8E98C /* AnimationHelper.swift in Sources */,
 				84EF56441EAEA99800A38ADB /* CAAnimationExtension.swift in Sources */,
 				84C018711EC4C78900350D06 /* MovementTypeTableViewCell.swift in Sources */,
+				841FE60A1EC51D2E00511D32 /* MovementTableViewCell.swift in Sources */,
 				849E7BEF1EB7C88C00F8E98C /* EditBarCollectionViewController.swift in Sources */,
 				84C0186B1EC49C3600350D06 /* Movement.swift in Sources */,
 				849E7BE71EB69B5A00F8E98C /* NewExerciseViewController.swift in Sources */,
 				849E7BF11EB7C9CF00F8E98C /* EditBarCollectionViewCell.swift in Sources */,
+				841FE6081EC51CD300511D32 /* MovementSelectionCollectionViewCell.swift in Sources */,
 				8463885E1EBCB2D200DA84BC /* NewExercisePickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
