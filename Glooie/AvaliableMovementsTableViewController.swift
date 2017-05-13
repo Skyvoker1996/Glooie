@@ -19,6 +19,12 @@ class AvaliableMovementsTableViewController: UITableViewController {
         }
     }
     
+    func updateBrainData(with movement: Movement) {
+        
+        DataModelBrain.shared.movementsSelectedByUser.append(movement)
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +50,8 @@ class AvaliableMovementsTableViewController: UITableViewController {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: Cells.movementCell.rawValue, for: indexPath) as? MovementTableViewCell {
         
+            
+            cell.delegate = self
             cell.movements = customDataStructure[indexPath.row]
             cell.dataTypes = cell.movements.count > 1 ? [.directions, .compatibleMovements] : [.compatibleMovements]
             
@@ -62,5 +70,24 @@ class AvaliableMovementsTableViewController: UITableViewController {
         }
         
         return UITableViewCell()
+    }
+    
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return customDataStructure[indexPath.row].count <= 1
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let movement = customDataStructure[indexPath.row].first else { return }
+        
+        updateBrainData(with: movement)
+    }
+}
+
+extension AvaliableMovementsTableViewController: MovementTableViewCellDelegate {
+    
+    func userSelected(movement: Movement) {
+        
+        updateBrainData(with: movement)
     }
 }

@@ -179,7 +179,7 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
         
         let movements = Assets.data(from: "Movements")["movements"].arrayValue.map { Movement(json: $0) }
         
-        if let compatibleMovements = movements.filter({ $0.animationName == .resting }).first?.compatibleMovements {
+        if let compatibleMovements = movements.filter({ $0.animationName == .none }).first?.compatibleMovements {
             
             rootController.compatibleMovements = movements.filter({ compatibleMovements.contains($0.name) })
         }

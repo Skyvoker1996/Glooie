@@ -12,7 +12,15 @@ class DataModelBrain {
     
     static let shared = DataModelBrain()
     
-    var movementsSelectedByUser: [Movement] = []
+    var movementsSelectedByUser: [Movement] = [] {
+        didSet {
+            
+            editBarNeedsUpdate?(oldValue.count < movementsSelectedByUser.count)
+            print("🍐 Added new movement, oldValue \(oldValue.count), newValue\(movementsSelectedByUser.count)")
+        }
+    }
+    
+    var editBarNeedsUpdate: ((_ shouldScroll: Bool)-> Void)?
     
     private init() {
         

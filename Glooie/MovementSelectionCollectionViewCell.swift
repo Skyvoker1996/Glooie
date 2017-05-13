@@ -9,9 +9,16 @@
 import UIKit
 import UPCarouselFlowLayout
 
+protocol MovementSelectionCollectionViewCellDelegate: class {
+    
+    func didSelect(direction: DirectionNames)
+}
+
 class MovementSelectionCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    weak var delegate: MovementSelectionCollectionViewCellDelegate?
     
     var dataType: MovementTableViewCell.DataType = .none {
         
@@ -57,6 +64,9 @@ extension MovementSelectionCollectionViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        guard dataType == .directions else { return }
+        
+        delegate?.didSelect(direction: data.directions[indexPath.row])
         print("🌳")
     }
 }

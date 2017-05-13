@@ -29,6 +29,7 @@
 		8463885C1EBCB28C00DA84BC /* NewExercisePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8463885B1EBCB28C00DA84BC /* NewExercisePickerView.xib */; };
 		8463885E1EBCB2D200DA84BC /* NewExercisePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463885D1EBCB2D200DA84BC /* NewExercisePickerView.swift */; };
 		8488747F1EC740D400DF7340 /* DataModelBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488747E1EC740D400DF7340 /* DataModelBrain.swift */; };
+		848874811EC75E4200DF7340 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848874801EC75E4200DF7340 /* UICollectionViewExtension.swift */; };
 		849E7BE11EB6409400F8E98C /* ExerciseDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E7BE01EB6409400F8E98C /* ExerciseDescriptionTableViewCell.swift */; };
 		849E7BE31EB6750300F8E98C /* ExerciseDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E7BE21EB6750300F8E98C /* ExerciseDescriptionViewController.swift */; };
 		849E7BE51EB68AE100F8E98C /* SceneKit Scene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 849E7BE41EB68AE100F8E98C /* SceneKit Scene.scn */; };
@@ -76,6 +77,7 @@
 		8463885B1EBCB28C00DA84BC /* NewExercisePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewExercisePickerView.xib; sourceTree = "<group>"; };
 		8463885D1EBCB2D200DA84BC /* NewExercisePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewExercisePickerView.swift; sourceTree = "<group>"; };
 		8488747E1EC740D400DF7340 /* DataModelBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModelBrain.swift; sourceTree = "<group>"; };
+		848874801EC75E4200DF7340 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		849E7BE01EB6409400F8E98C /* ExerciseDescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		849E7BE21EB6750300F8E98C /* ExerciseDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDescriptionViewController.swift; sourceTree = "<group>"; };
 		849E7BE41EB68AE100F8E98C /* SceneKit Scene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "SceneKit Scene.scn"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				84EF56431EAEA99800A38ADB /* CAAnimationExtension.swift */,
 				844708C91EB8E17F00097047 /* UITableViewControllerExtension.swift */,
 				84C0186C1EC49F1400350D06 /* SCNVector3Extension.swift */,
+				848874801EC75E4200DF7340 /* UICollectionViewExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				849E7BE11EB6409400F8E98C /* ExerciseDescriptionTableViewCell.swift in Sources */,
 				844708C81EB8DD3C00097047 /* AvaliableMovementsTableViewController.swift in Sources */,
 				84C0186D1EC49F1400350D06 /* SCNVector3Extension.swift in Sources */,
+				848874811EC75E4200DF7340 /* UICollectionViewExtension.swift in Sources */,
 				843738B51EC4D33B0082A583 /* DirectionCollectionViewCell.swift in Sources */,
 				843684091EAD51D900CEE6E9 /* GlobalConstants.swift in Sources */,
 				84B209081EAD72D40040B9CD /* ExercisePresentationViewController.swift in Sources */,

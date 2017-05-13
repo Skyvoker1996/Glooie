@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol EditBarCollectionViewCellDelegate: class {
+    
+    func itemNeedsToBeDeleted(_ sender: UIButton)
+    func updateAmountOfRepeats(to value: Int, with sender: UIView)
+}
+
 class EditBarCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var amountOfRepeatsLabel: UILabel!
@@ -17,11 +23,15 @@ class EditBarCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var directionImageView: UIImageView!
     
+    weak var delegate: EditBarCollectionViewCellDelegate?
+    
     var movement: Movement = Movement(json: []) {
         didSet {
             
             animationTitleLabel.text = movement.name
             directionImageView.image = UIImage(named: movement.direction?.rawValue ?? String())
+            amountOfRepeatsLabel.text = String(format: "%d", movement.amountOfRepeats)
+            directionImageView.isHidden = movement.direction == nil
         }
     }
     
@@ -31,7 +41,7 @@ class EditBarCollectionViewCell: UICollectionViewCell {
         setupGestureRecognizer()
     }
     
-    func updateUI() {
+    private func updateUI() {
         
         amountOfRepeatsLabel.text = String(format: "%.0f", stepper.value)
     }
@@ -53,12 +63,14 @@ class EditBarCollectionViewCell: UICollectionViewCell {
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
     
+        delegate?.updateAmountOfRepeats(to: Int(sender.value), with: sender)
         updateUI()
     }
     
     @IBAction func removeAnimationBlock(_ sender: UIButton) {
     
-        
+        dismissRemoveButton(sender)
+        delegate?.itemNeedsToBeDeleted(sender)
     }
     
     @IBAction func dismissRemoveButton(_ sender: UIButton) {

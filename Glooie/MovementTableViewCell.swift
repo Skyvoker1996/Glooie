@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol MovementTableViewCellDelegate: class {
+    
+    func userSelected(movement: Movement)
+}
+
 class MovementTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movementTitleLabel: UILabel!
@@ -20,6 +25,8 @@ class MovementTableViewCell: UITableViewCell {
         case compatibleMovements
         case none
     }
+    
+    weak var delegate: MovementTableViewCellDelegate?
     
     var dataTypes: [MovementTableViewCell.DataType] = [.compatibleMovements] {
         didSet {
@@ -103,6 +110,7 @@ extension MovementTableViewCell: UICollectionViewDataSource {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.movementSelectionCollectionCell.rawValue, for: indexPath) as? MovementSelectionCollectionViewCell {
             
             cell.dataType = dataTypes[indexPath.section]
+            cell.delegate = self
             
             switch cell.dataType {
             case .compatibleMovements:
@@ -121,3 +129,16 @@ extension MovementTableViewCell: UICollectionViewDataSource {
         return UICollectionViewCell()
     }
 }
+
+extension MovementTableViewCell: MovementSelectionCollectionViewCellDelegate {
+    
+    func didSelect(direction: DirectionNames) {
+        
+        let selectedMovement = movements.filter { $0.direction == direction }.first
+        
+        guard selectedMovement != nil else { return }
+        
+        delegate?.userSelected(movement: selectedMovement!)
+    }
+}
+

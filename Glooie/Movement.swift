@@ -19,6 +19,7 @@ class Movement {
     let transition: SCNVector3?
     let direction: DirectionNames?
     let amountOfFrames: Double
+    var amountOfRepeats: Int = 1
     let compatibleMovements: [String]
     
     init(json: JSON) {
