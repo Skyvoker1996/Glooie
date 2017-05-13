@@ -27,7 +27,7 @@ class Movement {
         amountOfFrames = json["amountOfFrames"].doubleValue
         movementType = MovementType.Types(rawValue: json["movementType"].stringValue) ?? .none
         duration = Measurement(value: amountOfFrames/GlobalConfig.AnimationFPS, unit: .seconds)
-        animationName = AnimationNames(rawValue: json["animationName"].stringValue) ?? .resting
+        animationName = AnimationNames(rawValue: json["animationName"].stringValue) ?? .none
         isMovable = json["isMovable"].boolValue
         transition = SCNVector3(json: json["transition"])
         direction = DirectionNames(rawValue: json["directionName"].stringValue)

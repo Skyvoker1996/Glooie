@@ -48,7 +48,7 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUI()
         setupScene()
         //setupGestureRecognizer()
@@ -176,7 +176,6 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
         popover.sourceRect = rect
         
         guard let rootController = vc.visibleViewController as? AvailableAnimationsViewController else { return }
-        
         
         let movements = Assets.data(from: "Movements")["movements"].arrayValue.map { Movement(json: $0) }
         

@@ -10,6 +10,8 @@ import UIKit
 
 class EditBarCollectionViewController: UICollectionViewController {
     
+    var movementsAddedByUser: [Movement] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +41,7 @@ class EditBarCollectionViewController: UICollectionViewController {
 extension EditBarCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return movementsAddedByUser.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

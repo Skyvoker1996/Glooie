@@ -11,10 +11,19 @@ import UIKit
 class EditBarCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var amountOfRepeatsLabel: UILabel!
-    @IBOutlet weak var anumationTitleLabel: UILabel!
+    @IBOutlet weak var animationTitleLabel: UILabel!
     @IBOutlet weak var visualEffect: UIVisualEffectView!
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var directionImageView: UIImageView!
+    
+    var movement: Movement = Movement(json: []) {
+        didSet {
+            
+            animationTitleLabel.text = movement.name
+            directionImageView.image = UIImage(named: movement.direction?.rawValue ?? String())
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

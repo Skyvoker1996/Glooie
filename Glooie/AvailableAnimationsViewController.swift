@@ -12,6 +12,8 @@ class AvailableAnimationsViewController: BasicViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    let brain = DataModelBrain.shared
+    
     var compatibleMovements: [Movement] = [] {
         didSet {
         
@@ -79,11 +81,26 @@ extension AvailableAnimationsViewController: UITableViewDataSource {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: Cells.movementTypeCell.rawValue, for: indexPath) as? MovementTypeTableViewCell {
             
+            cell.delegate = self
             cell.movementType = movementTypes[indexPath.row]
             
             return cell
         }
         
         return UITableViewCell()
+    }
+}
+
+extension AvailableAnimationsViewController: MovementTypeTableViewCellDelegate {
+    
+    func didSelect(direction: DirectionNames) {
+        
+        let movementSelectedByUser = compatibleMovements.filter { $0.movementType == .catchLocation && $0.direction == direction }.first
+        
+        guard movementSelectedByUser != nil else { return }
+        
+        brain.movementsSelectedByUser.append(movementSelectedByUser!)
+        
+        dismiss(animated: true, completion: nil)
     }
 }

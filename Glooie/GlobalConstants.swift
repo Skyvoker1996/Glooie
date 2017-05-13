@@ -75,6 +75,7 @@ enum AnimationNames: String {
     case readiness = "readiness.dae"
     case jump = "jump.dae"
     case catchBallNearGround = "catch ball near the ground (standing on knees)_left.dae"
+    case none
 }
 
 enum Segues: String {

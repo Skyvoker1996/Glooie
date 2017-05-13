@@ -878,7 +878,8 @@
                                 <size key="customSize" width="250" height="150"/>
                                 <connections>
                                     <outlet property="amountOfRepeatsLabel" destination="n6Q-Nb-LuI" id="RZ6-eF-L8D"/>
-                                    <outlet property="anumationTitleLabel" destination="K4N-Vc-se4" id="v40-S2-Qw5"/>
+                                    <outlet property="animationTitleLabel" destination="K4N-Vc-se4" id="dt8-rB-4ne"/>
+                                    <outlet property="directionImageView" destination="URy-AN-I32" id="VUs-Cb-AFb"/>
                                     <outlet property="stackView" destination="T7i-qq-gct" id="EAA-jo-mXu"/>
                                     <outlet property="stepper" destination="d3p-Ud-c3j" id="Qwp-yX-a9x"/>
                                     <outlet property="visualEffect" destination="w8K-8z-7aK" id="BuE-Dd-HG4"/>

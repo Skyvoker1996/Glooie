@@ -9,6 +9,11 @@
 import UIKit
 import UPCarouselFlowLayout
 
+protocol MovementTypeTableViewCellDelegate: class {
+    
+    func didSelect(direction: DirectionNames)
+}
+
 class MovementTypeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movementTypeImageView: UIImageView!
@@ -19,6 +24,8 @@ class MovementTypeTableViewCell: UITableViewCell {
     @IBOutlet weak var innerStackView: UIStackView!
     @IBOutlet weak var outerStackView: UIStackView!
     @IBOutlet weak var bottomStackView: UIStackView!
+    
+    weak var delegate: MovementTypeTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -67,6 +74,7 @@ extension MovementTypeTableViewCell: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        delegate?.didSelect(direction: movementType.directions[indexPath.row])
         print("🍐 Currenty selected items is under index \(indexPath.row)")
     }
 }
