@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		841FE6081EC51CD300511D32 /* MovementSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841FE6071EC51CD300511D32 /* MovementSelectionCollectionViewCell.swift */; };
 		841FE60A1EC51D2E00511D32 /* MovementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841FE6091EC51D2E00511D32 /* MovementTableViewCell.swift */; };
+		841FE60C1EC6694800511D32 /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841FE60B1EC6694800511D32 /* ContentCollectionViewCell.swift */; };
+		841FE60E1EC676E100511D32 /* BasicHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841FE60D1EC676E100511D32 /* BasicHeaderCollectionReusableView.swift */; };
 		843684091EAD51D900CEE6E9 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843684081EAD51D900CEE6E9 /* GlobalConstants.swift */; };
 		8436840E1EAD663900CEE6E9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436840D1EAD663900CEE6E9 /* UIColorExtension.swift */; };
 		843684121EAD6E5D00CEE6E9 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 843684111EAD6E5D00CEE6E9 /* art.scnassets */; };
@@ -51,6 +53,8 @@
 		57476CDD31E9F345BDD47E1F /* Pods-Glooie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glooie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Glooie/Pods-Glooie.debug.xcconfig"; sourceTree = "<group>"; };
 		841FE6071EC51CD300511D32 /* MovementSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		841FE6091EC51D2E00511D32 /* MovementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementTableViewCell.swift; sourceTree = "<group>"; };
+		841FE60B1EC6694800511D32 /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
+		841FE60D1EC676E100511D32 /* BasicHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		843684081EAD51D900CEE6E9 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		8436840D1EAD663900CEE6E9 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		843684111EAD6E5D00CEE6E9 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 			children = (
 				8463885B1EBCB28C00DA84BC /* NewExercisePickerView.xib */,
 				8463885D1EBCB2D200DA84BC /* NewExercisePickerView.swift */,
+				841FE60D1EC676E100511D32 /* BasicHeaderCollectionReusableView.swift */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 				843738B41EC4D33B0082A583 /* DirectionCollectionViewCell.swift */,
 				841FE6071EC51CD300511D32 /* MovementSelectionCollectionViewCell.swift */,
 				841FE6091EC51D2E00511D32 /* MovementTableViewCell.swift */,
+				841FE60B1EC6694800511D32 /* ContentCollectionViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -415,6 +421,7 @@
 				8445E2E31E71C486009656BA /* Glooie.xcdatamodeld in Sources */,
 				8445E2DD1E71C486009656BA /* ExerciseViewController.swift in Sources */,
 				8436840E1EAD663900CEE6E9 /* UIColorExtension.swift in Sources */,
+				841FE60E1EC676E100511D32 /* BasicHeaderCollectionReusableView.swift in Sources */,
 				84C018691EC4909A00350D06 /* ExerciseType.swift in Sources */,
 				844708CA1EB8E17F00097047 /* UITableViewControllerExtension.swift in Sources */,
 				849E7BE11EB6409400F8E98C /* ExerciseDescriptionTableViewCell.swift in Sources */,
@@ -423,6 +430,7 @@
 				843738B51EC4D33B0082A583 /* DirectionCollectionViewCell.swift in Sources */,
 				843684091EAD51D900CEE6E9 /* GlobalConstants.swift in Sources */,
 				84B209081EAD72D40040B9CD /* ExercisePresentationViewController.swift in Sources */,
+				841FE60C1EC6694800511D32 /* ContentCollectionViewCell.swift in Sources */,
 				8445E2DB1E71C486009656BA /* AppDelegate.swift in Sources */,
 				849E7BED1EB7A04F00F8E98C /* AnimationHelper.swift in Sources */,
 				84EF56441EAEA99800A38ADB /* CAAnimationExtension.swift in Sources */,

@@ -13,7 +13,7 @@ class MovementSelectionCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var dataType: DataType = .none {
+    var dataType: MovementTableViewCell.DataType = .none {
         
         didSet {
             
@@ -21,7 +21,7 @@ class MovementSelectionCollectionViewCell: UICollectionViewCell {
             
             switch dataType {
             case .compatibleMovements:
-                layout.itemSize = CGSize(width: 60, height: 30)
+                layout.itemSize = CGSize(width: 100, height: 40)
             case .directions:
                 layout.itemSize = CGSize(width: 40, height: 40)
             case .none:
@@ -35,17 +35,10 @@ class MovementSelectionCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var compatibleMovements = [String]() {
+    var data: (compatibleMovements: [String], directions: [DirectionNames]) = ([], []) {
         didSet {
             collectionView.reloadData()
         }
-    }
-    
-    enum DataType {
-        
-        case directions
-        case compatibleMovements
-        case none
     }
     
     override func awakeFromNib() {
@@ -71,47 +64,33 @@ extension MovementSelectionCollectionViewCell: UICollectionViewDelegate {
 extension MovementSelectionCollectionViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataType == .directions ? 2 : compatibleMovements.count
+        return dataType == .directions ? data.directions.count : data.compatibleMovements.count == 0 ? 1 : data.compatibleMovements.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.contentCollectionCell.rawValue, for: indexPath)
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.contentCollectionCell.rawValue, for: indexPath) as? ContentCollectionViewCell {
         
-        func addConstraints(to view: UIView) {
-            
-            view.translatesAutoresizingMaskIntoConstraints = false
-            cell.addSubview(view)
-            
-            NSLayoutConstraint.activate([
+            switch dataType {
+            case .directions:
                 
-                view.topAnchor.constraint(equalTo: cell.topAnchor),
-                view.bottomAnchor.constraint(equalTo: cell.bottomAnchor),
-                view.leftAnchor.constraint(equalTo: cell.leftAnchor),
-                view.rightAnchor.constraint(equalTo: cell.rightAnchor)
-                ])
-        }
+                cell.directionImageView.isHidden = false
+                cell.compatibleMovementLabel.isHidden = true
+                cell.directionImageView.image = UIImage(named: data.directions[indexPath.row].rawValue)
+                
+            case .compatibleMovements:
+                
+                cell.directionImageView.isHidden = true
+                cell.compatibleMovementLabel.isHidden = false
+                cell.compatibleMovementLabel.text = data.compatibleMovements.count == 0 ? "It's not compatible with other movements" : data.compatibleMovements[indexPath.row]
+            default:
+                break
+            }
         
-        switch dataType {
-        case .directions:
-            let imageView = UIImageView(image: #imageLiteral(resourceName: "up"))
-            imageView.contentMode = .scaleAspectFit
-            
-            addConstraints(to: imageView)
-        case .compatibleMovements:
-            
-            let label = UILabel()
-            label.numberOfLines = 0
-            label.textAlignment = .center
-            label.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightLight)
-            label.textColor = .lightGray
-            label.text = compatibleMovements[indexPath.row]
-            addConstraints(to: label)
-        default:
-            break
+            return cell
         }
-            
-        return cell
+
+        return UICollectionViewCell()
     }
 }
 

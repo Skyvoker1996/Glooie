@@ -12,20 +12,37 @@ class MovementTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movementTitleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
+    
+    enum DataType {
+        
+        case directions
+        case compatibleMovements
+        case none
+    }
+    
+    var dataTypes: [MovementTableViewCell.DataType] = [.compatibleMovements] {
+        didSet {
+            collectionView?.reloadData()
+        }
+    }
+    
+    var movements: [Movement] = [] {
+        didSet {
+            
+            guard let movement = movements.first else { return }
+            
+            movementTitleLabel.text = movement.name
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
     
+        collectionView.register(BasicHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Headers.basicCollectionViewHeader.rawValue)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
-    }
-    
-    var movement: Movement = Movement(json: []) {
-        didSet {
-            
-            movementTitleLabel.text = movement.name
-            collectionView.reloadData()
-        }
     }
 }
 
@@ -33,24 +50,70 @@ extension MovementTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.frame.width, height: indexPath.row == 0 ? 40 : 30)
+        return CGSize(width: collectionView.frame.width, height: 40)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        return CGSize(width: collectionView.frame.width, height: 30)
     }
 }
 
-extension MovementTableViewCell: UICollectionViewDelegate { }
+extension MovementTableViewCell: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        guard kind == UICollectionElementKindSectionHeader else { return UICollectionReusableView() }
+        
+        if let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Headers.basicCollectionViewHeader.rawValue, for: indexPath) as? BasicHeaderCollectionReusableView {
+            
+            
+            switch dataTypes[indexPath.section] {
+            case .compatibleMovements:
+                
+                headerView.titleLabel.text = "Compatible movements:"
+            case .directions:
+                
+                headerView.titleLabel.text = "Select direction:"
+            default:
+                break
+            }
+            
+            return headerView
+        }
+        
+        return UICollectionReusableView()
+    }
+}
 
 extension MovementTableViewCell: UICollectionViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
+        return dataTypes.count
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.movementSelectionCollectionCell.rawValue, for: indexPath) as? MovementSelectionCollectionViewCell {
             
-            cell.dataType = indexPath.row == 0 ? .directions : .compatibleMovements
-            cell.compatibleMovements = movement.compatibleMovements
+            cell.dataType = dataTypes[indexPath.section]
+            
+            switch cell.dataType {
+            case .compatibleMovements:
+                
+                cell.data = (movements.first?.compatibleMovements ?? [], [])
+            case .directions:
+            
+                cell.data = ([], movements.flatMap { $0.direction })
+            default:
+                break
+            }
             
             return cell
         }

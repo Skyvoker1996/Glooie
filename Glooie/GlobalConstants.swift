@@ -20,6 +20,11 @@ enum ViewControllers: String {
     case movementSelectionNavigationController = "movementSelectionViewController"
 }
 
+enum Headers: String {
+    
+    case basicCollectionViewHeader = "basicCollectionViewHeader"
+}
+
 enum Cells: String {
     
     case editBarCollectionCell = "editBarCell"

@@ -174,6 +174,17 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
         
         popover.sourceView = scnView
         popover.sourceRect = rect
+        
+        guard let rootController = vc.visibleViewController as? AvailableAnimationsViewController else { return }
+        
+        
+        let movements = Assets.data(from: "Movements")["movements"].arrayValue.map { Movement(json: $0) }
+        
+        if let compatibleMovements = movements.filter({ $0.animationName == .resting }).first?.compatibleMovements {
+            
+            rootController.compatibleMovements = movements.filter({ compatibleMovements.contains($0.name) })
+        }
+        
         present(vc, animated: true, completion:nil)
     }
 }

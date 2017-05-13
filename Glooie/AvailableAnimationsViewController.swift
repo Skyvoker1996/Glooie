@@ -12,7 +12,29 @@ class AvailableAnimationsViewController: BasicViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let movementTypes = Assets.data(from: "MovementTypes")["types"].arrayValue.map { MovementType(json: $0) }
+    var compatibleMovements: [Movement] = [] {
+        didSet {
+        
+            let allAvailableMovementTypes = Assets.data(from: "MovementTypes")["types"].arrayValue.map { MovementType(json: $0) }
+            
+            movementTypes = allAvailableMovementTypes.filter { type in
+                
+                compatibleMovements.contains { $0.movementType == type.type }
+            }
+        }
+    }
+    
+    fileprivate var movementTypes = [MovementType]() {
+        didSet {
+            
+            for movementType in movementTypes where movementType.type == .catchLocation {
+                
+                movementType.directions = compatibleMovements.flatMap { $0.movementType == .catchLocation ? $0.direction : nil }
+            }
+            
+            tableView?.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +49,7 @@ class AvailableAnimationsViewController: BasicViewController {
         identifier == Segues.movements.rawValue,
             let vc = segue.destination as? AvaliableMovementsTableViewController, let selectedType = sender as? MovementType.Types else { return }
         
-        vc.movements = Assets.data(from: "Movements")["movements"].arrayValue.map { Movement(json: $0) }.filter { $0.movementType == selectedType}
+        vc.movements = compatibleMovements.filter { $0.movementType == selectedType}
     }
 }
 

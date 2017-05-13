@@ -18,6 +18,7 @@ class MovementTypeTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var innerStackView: UIStackView!
     @IBOutlet weak var outerStackView: UIStackView!
+    @IBOutlet weak var bottomStackView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,12 +44,14 @@ class MovementTypeTableViewCell: UITableViewCell {
                 
                 accessoryType = .none
                 heightConstraint.constant = 40
+                bottomStackView.spacing = 10
                 innerStackView.arrangedSubviews.first?.isHidden = true
                 outerStackView.arrangedSubviews.last?.isHidden = false
                 collectionView.reloadData()
             default:
             
                 accessoryType = .disclosureIndicator
+                bottomStackView.spacing = 0
                 heightConstraint.constant = 0
                 innerStackView.arrangedSubviews.first?.isHidden = false
                 outerStackView.arrangedSubviews.last?.isHidden = true
@@ -61,7 +64,6 @@ class MovementTypeTableViewCell: UITableViewCell {
 }
 
 extension MovementTypeTableViewCell: UICollectionViewDelegate {
-
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

@@ -22,12 +22,11 @@ class MovementType {
     
     let type: Types
     let image: UIImage?
-    let directions: [DirectionNames]
+    var directions: [DirectionNames] = []
     
     init(json: JSON) {
         
         type = MovementType.Types(rawValue: json["type"].stringValue) ?? .none
         image = UIImage(named: json["image"].stringValue)
-        directions = json["directions"].array?.map { DirectionNames(rawValue: $0.stringValue) ?? .none } ?? []
     }
 }

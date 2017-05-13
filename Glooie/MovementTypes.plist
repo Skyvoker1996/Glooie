@@ -27,15 +27,6 @@
 			<string>Locations of ball catch</string>
 			<key>image</key>
 			<string></string>
-			<key>directions</key>
-			<array>
-				<string>middle</string>
-				<string>leftDown</string>
-				<string>leftTop</string>
-				<string>rightDown</string>
-				<string>rightTop</string>
-				<string>down</string>
-			</array>
 		</dict>
 	</array>
 </dict>

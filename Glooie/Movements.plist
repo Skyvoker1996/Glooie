@@ -7,8 +7,12 @@
 		<dict>
 			<key>compatibleMovements</key>
 			<array>
-				<string>stand on knees</string>
-				<string>sidestep</string>
+                <string>Basic jump</string>
+                <string>Readiness</string>
+                <string>Somersault</string>
+                <string>Stand on knees</string>
+                <string>Sidestep</string>
+                <string>Catch ball</string>
 			</array>
 			<key>transition</key>
 			<dict>
@@ -32,166 +36,540 @@
 			<key>directionName</key>
 			<string>forward</string>
 		</dict>
-        <dict>
-            <key>compatibleMovements</key>
-            <array>
-                <string>stand on knees</string>
-                <string>sidestep</string>
-            </array>
-            <key>transition</key>
-            <dict>
-                <key>x</key>
-                <integer>0</integer>
-                <key>y</key>
-                <real>0</real>
-                <key>z</key>
-                <integer>0</integer>
-            </dict>
-            <key>isMovable</key>
-            <false/>
-            <key>animationName</key>
-            <string>readiness</string>
-            <key>movementType</key>
-            <string>Positions</string>
-            <key>amountOfFrames</key>
-            <integer>25</integer>
-            <key>name</key>
-            <string>Readiness</string>
-        </dict>
-        <dict>
-            <key>compatibleMovements</key>
-            <array>
-                <string>stand on knees</string>
-                <string>sidestep</string>
-            </array>
-            <key>transition</key>
-            <dict>
-                <key>x</key>
-                <integer>0</integer>
-                <key>y</key>
-                <real>-4.7</real>
-                <key>z</key>
-                <integer>0</integer>
-            </dict>
-            <key>isMovable</key>
-            <true/>
-            <key>animationName</key>
-            <string>somersault</string>
-            <key>movementType</key>
-            <string>Special motions</string>
-            <key>amountOfFrames</key>
-            <integer>68</integer>
-            <key>name</key>
-            <string>Somersault</string>
-            <key>directionName</key>
-            <string>forward</string>
-        </dict>
-        <dict>
-            <key>compatibleMovements</key>
-            <array>
-                <string>stand on knees</string>
-                <string>sidestep</string>
-            </array>
-            <key>transition</key>
-            <dict>
-                <key>x</key>
-                <integer>0</integer>
-                <key>y</key>
-                <real>0</real>
-                <key>z</key>
-                <integer>0</integer>
-            </dict>
-            <key>isMovable</key>
-            <false/>
-            <key>animationName</key>
-            <string>stand on knees</string>
-            <key>movementType</key>
-            <string>Positions</string>
-            <key>amountOfFrames</key>
-            <integer>56</integer>
-            <key>name</key>
-            <string>Stand on knees</string>
-        </dict>
-        <dict>
-            <key>compatibleMovements</key>
-            <array>
-                <string>stand on knees</string>
-                <string>sidestep</string>
-            </array>
-            <key>transition</key>
-            <dict>
-                <key>x</key>
-                <real>-1.93779</real>
-                <key>y</key>
-                <integer>0</integer>
-                <key>z</key>
-                <integer>0</integer>
-            </dict>
-            <key>isMovable</key>
-            <true/>
-            <key>animationName</key>
-            <string>sidestep_right</string>
-            <key>movementType</key>
-            <string>Special motions</string>
-            <key>amountOfFrames</key>
-            <integer>33</integer>
-            <key>name</key>
-            <string>Sidestep</string>
-            <key>directionName</key>
-            <string>right</string>
-        </dict>
-        <dict>
-            <key>compatibleMovements</key>
-            <array>
-                <string>stand on knees</string>
-                <string>sidestep</string>
-            </array>
-            <key>transition</key>
-            <dict>
-                <key>x</key>
-                <real>1.93779</real>
-                <key>y</key>
-                <integer>0</integer>
-                <key>z</key>
-                <integer>0</integer>
-            </dict>
-            <key>isMovable</key>
-            <true/>
-            <key>animationName</key>
-            <string>sidestep_right</string>
-            <key>movementType</key>
-            <string>Special motions</string>
-            <key>amountOfFrames</key>
-            <integer>33</integer>
-            <key>name</key>
-            <string>Sidestep</string>
-            <key>directionName</key>
-            <string>left</string>
-        </dict>
-        <dict>
-            <key>compatibleMovements</key>
-            <array>
-                <string>stand on knees</string>
-                <string>sidestep</string>
-            </array>
-            <key>transition</key>
-            <dict>
-                <key>x</key>
-                <integer>0</integer>
-                <key>y</key>
-                <integer>0</integer>
-                <key>z</key>
-                <integer>0</integer>
-            </dict>
-            <key>isMovable</key>
-            <false/>
-            <key>animationName</key>
-            <string>resting</string>
-            <key>amountOfFrames</key>
-            <integer>80</integer>
-            <key>name</key>
-            <string>Resting</string>
-        </dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array>
+                <string>Basic jump</string>
+                <string>Readiness</string>
+                <string>Somersault</string>
+                <string>Stand on knees</string>
+                <string>Sidestep</string>
+                <string>Catch ball</string>
+			</array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<real>0</real>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<false/>
+			<key>animationName</key>
+			<string>readiness</string>
+			<key>movementType</key>
+			<string>Positions</string>
+			<key>amountOfFrames</key>
+			<integer>25</integer>
+			<key>name</key>
+			<string>Readiness</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array>
+                <string>Basic jump</string>
+                <string>Readiness</string>
+                <string>Somersault</string>
+                <string>Stand on knees</string>
+                <string>Sidestep</string>
+                <string>Catch ball</string>
+			</array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<real>-4.7</real>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<true/>
+			<key>animationName</key>
+			<string>somersault</string>
+			<key>movementType</key>
+			<string>Special motions</string>
+			<key>amountOfFrames</key>
+			<integer>68</integer>
+			<key>name</key>
+			<string>Somersault</string>
+			<key>directionName</key>
+			<string>forward</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array>
+				<string>Get up from knees</string>
+                <string>Catch ball on knees</string>
+			</array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<real>0</real>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<false/>
+			<key>animationName</key>
+			<string>stand on knees</string>
+			<key>movementType</key>
+			<string>Positions</string>
+			<key>amountOfFrames</key>
+			<integer>56</integer>
+			<key>name</key>
+			<string>Stand on knees</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array>
+                <string>Basic jump</string>
+                <string>Readiness</string>
+                <string>Somersault</string>
+                <string>Stand on knees</string>
+                <string>Sidestep</string>
+                <string>Catch ball</string>
+			</array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<real>-1.93779</real>
+				<key>y</key>
+				<integer>0</integer>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<true/>
+			<key>animationName</key>
+			<string>sidestep_right</string>
+			<key>movementType</key>
+			<string>Special motions</string>
+			<key>amountOfFrames</key>
+			<integer>33</integer>
+			<key>name</key>
+			<string>Sidestep</string>
+			<key>directionName</key>
+			<string>right</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array>
+                <string>Basic jump</string>
+                <string>Readiness</string>
+                <string>Somersault</string>
+                <string>Stand on knees</string>
+                <string>Sidestep</string>
+                <string>Catch ball</string>
+			</array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<real>1.93779</real>
+				<key>y</key>
+				<integer>0</integer>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<true/>
+			<key>animationName</key>
+			<string>sidestep_right</string>
+			<key>movementType</key>
+			<string>Special motions</string>
+			<key>amountOfFrames</key>
+			<integer>33</integer>
+			<key>name</key>
+			<string>Sidestep</string>
+			<key>directionName</key>
+			<string>left</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array>
+                <string>Basic jump</string>
+                <string>Readiness</string>
+                <string>Somersault</string>
+                <string>Stand on knees</string>
+                <string>Sidestep</string>
+                <string>Catch ball</string>
+			</array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<false/>
+			<key>animationName</key>
+			<string>resting</string>
+			<key>amountOfFrames</key>
+			<integer>80</integer>
+			<key>name</key>
+			<string>Resting</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array>
+                <string>Basic jump</string>
+                <string>Readiness</string>
+                <string>Somersault</string>
+                <string>Stand on knees</string>
+                <string>Sidestep</string>
+                <string>Catch ball</string>
+			</array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<false/>
+			<key>animationName</key>
+			<string>lean head form side to side</string>
+			<key>amountOfFrames</key>
+			<integer>59</integer>
+			<key>name</key>
+			<string>Lean a head from side to side</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array>
+                <string>Basic jump</string>
+                <string>Readiness</string>
+                <string>Somersault</string>
+                <string>Stand on knees</string>
+                <string>Sidestep</string>
+                <string>Catch ball</string>
+			</array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<real>0</real>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<false/>
+			<key>animationName</key>
+			<string>get up from knees</string>
+			<key>movementType</key>
+			<string>Positions</string>
+			<key>amountOfFrames</key>
+			<integer>56</integer>
+			<key>name</key>
+			<string>Get up from knees</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array></array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<real>-7.02655</real>
+				<key>y</key>
+				<real>-0.61196</real>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<true/>
+			<key>animationName</key>
+			<string>catch low ball right_side</string>
+			<key>movementType</key>
+			<string>Locations of ball catch</string>
+			<key>amountOfFrames</key>
+			<integer>48</integer>
+			<key>name</key>
+			<string>Catch ball</string>
+			<key>directionName</key>
+			<string>rightDown</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array></array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<real>7.02655</real>
+				<key>y</key>
+				<real>-0.61196</real>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<true/>
+			<key>animationName</key>
+			<string>catch low ball left_side</string>
+			<key>movementType</key>
+			<string>Locations of ball catch</string>
+			<key>amountOfFrames</key>
+			<integer>48</integer>
+			<key>name</key>
+			<string>Catch ball</string>
+			<key>directionName</key>
+			<string>leftDown</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array></array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<real>-5.47723</real>
+				<key>y</key>
+				<real>-0.98515</real>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<true/>
+			<key>animationName</key>
+			<string>catch high ball right_side</string>
+			<key>movementType</key>
+			<string>Locations of ball catch</string>
+			<key>amountOfFrames</key>
+			<integer>58</integer>
+			<key>name</key>
+			<string>Catch ball</string>
+			<key>directionName</key>
+			<string>rightTop</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array></array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<real>5.47723</real>
+				<key>y</key>
+				<real>-0.98515</real>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<true/>
+			<key>animationName</key>
+			<string>catch high ball left_side</string>
+			<key>movementType</key>
+			<string>Locations of ball catch</string>
+			<key>amountOfFrames</key>
+			<integer>58</integer>
+			<key>name</key>
+			<string>Catch ball</string>
+			<key>directionName</key>
+			<string>leftTop</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array>
+                <string>Basic jump</string>
+                <string>Readiness</string>
+                <string>Somersault</string>
+                <string>Stand on knees</string>
+                <string>Sidestep</string>
+                <string>Catch ball</string>
+			</array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<real>-2.36599</real>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<true/>
+			<key>animationName</key>
+			<string>catch ball straight near the ground_right_side</string>
+			<key>movementType</key>
+			<string>Locations of ball catch</string>
+			<key>amountOfFrames</key>
+			<integer>47</integer>
+			<key>name</key>
+			<string>Catch ball</string>
+			<key>directionName</key>
+			<string>down</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array>
+                <string>Basic jump</string>
+                <string>Readiness</string>
+                <string>Somersault</string>
+                <string>Stand on knees</string>
+                <string>Sidestep</string>
+                <string>Catch ball</string>
+			</array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<false/>
+			<key>animationName</key>
+			<string>catch ball on middle height</string>
+			<key>movementType</key>
+			<string>Locations of ball catch</string>
+			<key>amountOfFrames</key>
+			<integer>40</integer>
+			<key>name</key>
+			<string>Catch ball</string>
+			<key>directionName</key>
+			<string>middle</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array>
+                <string>Basic jump</string>
+                <string>Readiness</string>
+                <string>Somersault</string>
+                <string>Stand on knees</string>
+                <string>Sidestep</string>
+                <string>Catch ball</string>
+			</array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<false/>
+			<key>animationName</key>
+			<string>catch ball in straight position</string>
+			<key>movementType</key>
+			<string>Locations of ball catch</string>
+			<key>amountOfFrames</key>
+			<integer>24</integer>
+			<key>name</key>
+			<string>Catch ball</string>
+			<key>directionName</key>
+			<string>up</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array></array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<false/>
+			<key>animationName</key>
+			<string>catch ball near the ground (standing on knees)_right</string>
+			<key>movementType</key>
+			<string>Locations of ball catch</string>
+			<key>amountOfFrames</key>
+			<integer>46</integer>
+			<key>name</key>
+			<string>Catch ball on knees</string>
+			<key>directionName</key>
+			<string>rightDown</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array></array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<false/>
+			<key>animationName</key>
+			<string>catch ball near the ground (standing on knees)_left</string>
+			<key>movementType</key>
+			<string>Locations of ball catch</string>
+			<key>amountOfFrames</key>
+			<integer>46</integer>
+			<key>name</key>
+			<string>Catch ball on knees</string>
+			<key>directionName</key>
+			<string>leftDown</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array></array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<false/>
+			<key>animationName</key>
+			<string>catch ball in air (standing on knees)_right</string>
+			<key>movementType</key>
+			<string>Locations of ball catch</string>
+			<key>amountOfFrames</key>
+			<integer>48</integer>
+			<key>name</key>
+			<string>Catch ball on knees</string>
+			<key>directionName</key>
+			<string>rightTop</string>
+		</dict>
+		<dict>
+			<key>compatibleMovements</key>
+			<array></array>
+			<key>transition</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>z</key>
+				<integer>0</integer>
+			</dict>
+			<key>isMovable</key>
+			<false/>
+			<key>animationName</key>
+			<string>catch ball in air (standing on knees)_left</string>
+			<key>movementType</key>
+			<string>Locations of ball catch</string>
+			<key>amountOfFrames</key>
+			<integer>48</integer>
+			<key>name</key>
+			<string>Catch ball on knees</string>
+			<key>directionName</key>
+			<string>leftTop</string>
+		</dict>
 	</array>
 </dict>
 </plist>
