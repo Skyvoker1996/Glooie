@@ -21,7 +21,7 @@ class AvaliableMovementsTableViewController: UITableViewController {
     
     func updateBrainData(with movement: Movement) {
         
-        DataModelBrain.shared.movementsSelectedByUser.append(movement)
+        DataModelManager.shared.movementsSelectedByUser.append(movement)
         navigationController?.dismiss(animated: true, completion: nil)
     }
     

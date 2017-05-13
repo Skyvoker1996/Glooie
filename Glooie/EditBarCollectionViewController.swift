@@ -10,14 +10,37 @@ import UIKit
 
 class EditBarCollectionViewController: UICollectionViewController {
     
-    fileprivate let brain = DataModelBrain.shared
+    fileprivate let brain = DataModelManager.shared
+    
+    fileprivate let emptyView: UIView = {
+        
+        let newView = UIView()
+        newView.translatesAutoresizingMaskIntoConstraints = false
+        return newView
+    }()
+    
+    fileprivate let emptyViewTitleLabel: UILabel = {
+        
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = .darkGray
+        label.text = "To add new movement, tap and hold in the view above."
+        label.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightThin)
+        return label
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        emptyView.isHidden = !(brain.movementsSelectedByUser.count == 0)
+        
         brain.editBarNeedsUpdate = { [weak self] shouldScroll in
             
             guard let strongSelf = self else { return }
+            
+            strongSelf.emptyView.isHidden = !(strongSelf.brain.movementsSelectedByUser.count == 0)
             
             strongSelf.collectionView?.performBatchUpdates({
                 
@@ -32,6 +55,12 @@ class EditBarCollectionViewController: UICollectionViewController {
         
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(reorderItem(recognizer:)))
         collectionView?.addGestureRecognizer(longPressGesture)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        configureEmptyView()
     }
     
     func reorderItem(recognizer: UILongPressGestureRecognizer) {
@@ -49,6 +78,24 @@ class EditBarCollectionViewController: UICollectionViewController {
         default:
             collectionView?.cancelInteractiveMovement()
         }
+    }
+    
+    func configureEmptyView() {
+        
+        emptyView.addSubview(emptyViewTitleLabel)
+        view.addSubview(emptyView)
+        
+        NSLayoutConstraint.activate([
+            
+            emptyViewTitleLabel.widthAnchor.constraint(equalTo: emptyView.widthAnchor, multiplier: 0.6),
+            emptyViewTitleLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor),
+            emptyViewTitleLabel.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor),
+            
+            view.topAnchor.constraint(equalTo: emptyView.topAnchor),
+            view.bottomAnchor.constraint(equalTo: emptyView.bottomAnchor),
+            view.leftAnchor.constraint(equalTo: emptyView.leftAnchor),
+            view.rightAnchor.constraint(equalTo: emptyView.rightAnchor)
+            ])
     }
 }
 

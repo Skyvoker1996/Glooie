@@ -12,7 +12,7 @@ class AvailableAnimationsViewController: BasicViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let brain = DataModelBrain.shared
+    let brain = DataModelManager.shared
     
     var compatibleMovements: [Movement] = [] {
         didSet {
@@ -41,6 +41,11 @@ class AvailableAnimationsViewController: BasicViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if compatibleMovements.count == 0 {
+
+            showEmptyView()
+        }
+        
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
     }
@@ -52,6 +57,36 @@ class AvailableAnimationsViewController: BasicViewController {
             let vc = segue.destination as? AvaliableMovementsTableViewController, let selectedType = sender as? MovementType.Types else { return }
         
         vc.movements = compatibleMovements.filter { $0.movementType == selectedType}
+    }
+    
+    func showEmptyView() {
+        
+        let emptyView = UIView()
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        emptyView.backgroundColor = .white
+        
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = .darkGray
+        label.text = "There are no compatible movements with current state"
+        label.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightThin)
+        
+        emptyView.addSubview(label)
+        view.addSubview(emptyView)
+        
+        NSLayoutConstraint.activate([
+            
+            label.widthAnchor.constraint(equalTo: emptyView.widthAnchor, multiplier: 0.6),
+            label.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor),
+            
+            view.topAnchor.constraint(equalTo: emptyView.topAnchor),
+            view.bottomAnchor.constraint(equalTo: emptyView.bottomAnchor),
+            view.leftAnchor.constraint(equalTo: emptyView.leftAnchor),
+            view.rightAnchor.constraint(equalTo: emptyView.rightAnchor)
+            ])
     }
 }
 

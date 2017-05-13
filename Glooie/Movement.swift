@@ -9,7 +9,7 @@
 import SceneKit
 import SwiftyJSON
 
-class Movement {
+class Movement: Equatable {
     
     let name: String
     let duration: Measurement<UnitDuration>
@@ -33,5 +33,10 @@ class Movement {
         transition = SCNVector3(json: json["transition"])
         direction = DirectionNames(rawValue: json["directionName"].stringValue)
         compatibleMovements = json["compatibleMovements"].arrayValue.map { $0.stringValue }
+    }
+    
+    static func ==(lhs: Movement, rhs: Movement) -> Bool {
+        return lhs.name == rhs.name &&
+            rhs.direction == lhs.direction
     }
 }

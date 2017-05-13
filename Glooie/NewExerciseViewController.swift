@@ -34,12 +34,25 @@ class NewExerciseViewController: BasicViewController {
     
     @IBAction func dismissViewController(_ sender: UIBarButtonItem) {
         
-        navigationController?.dismiss(animated: true) {
+        switch sender.tag {
+        case 1:
             
-            if sender.tag == 1 {
+            guard !(exerciseTitleLabel.text ?? String()).isEmpty || !(descriptionTextView.text ?? String()).isEmpty, descriptionTextView.text != textViewPlaceholder else {
+                
+                let alert = UIAlertController(title: "Oops..", message: "Title and description must be filled", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                
+                present(alert, animated: true, completion: nil)
+                
+                return
+            }
+            
+            navigationController?.dismiss(animated: true) {
                 
                 self.delegate?.willCreateNewExercise(true)
             }
+        default:
+            navigationController?.dismiss(animated: true, completion: nil)
         }
     }
     
