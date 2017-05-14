@@ -11,34 +11,45 @@ import QuartzCore
 
 class AnimationHelper {
     
-    func playAnimations(_ animations: [CAAnimation], attachedTo node: SCNNode, completion: (()->Void)?) {
+    func playMovements(_ movements: [Movement], attachedTo node: SCNNode, completion: (()->Void)?) {
         
-        switch animations.count {
+        switch movements.count {
         case 0:
             print("You did not provide any animations")
             break
         default:
             
-            var animationsToUse = animations
-            let animation = animationsToUse.removeFirst()
+            var movementToUse = movements
+            let movement = movementToUse.removeFirst()
             
             SCNTransaction.begin()
             SCNTransaction.completionBlock = {
                 
-                switch animationsToUse.count > 0 {
+                switch movementToUse.count > 0 {
                 case true:
-                    self.playAnimations(animationsToUse, attachedTo: node, completion: completion)
+                    self.playMovements(movementToUse, attachedTo: node, completion: completion)
                 case false:
-                    //node.removeAllAnimations()
                     completion?()
                 }
             }
             
-            node.addAnimation(animation, forKey: nil)
-            
-            let moveAnimation = SCNAction.move(by: SCNVector3(0, -2.485, 0), duration: 50/30)
-            moveAnimation.timingMode = .easeIn
-            node.runAction(moveAnimation)
+            switch movement.isMovable {
+            case true:
+                
+                if let transition = movement.transition {
+                    
+                    let actions = Array<SCNAction>(repeating: SCNAction.move(by: transition, duration: (movement.amountOfFrames-5)/30), count: movement.amountOfRepeats)
+                    let actionSequence = SCNAction.sequence(actions)
+                    actionSequence.timingMode = .easeInEaseOut
+                    
+                    node.runAction(actionSequence)
+                }
+                
+                fallthrough
+            case false:
+                
+                node.addAnimation(movement.animationName.animation(amountOfRepeats: movement.amountOfRepeats) , forKey: nil)
+            }
             
             SCNTransaction.commit()
         }

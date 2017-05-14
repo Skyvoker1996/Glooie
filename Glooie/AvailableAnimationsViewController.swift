@@ -41,6 +41,16 @@ class AvailableAnimationsViewController: BasicViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if brain.movementsSelectedByUser.count == 0 {
+            
+            let movements = Assets.data(from: "Movements")["movements"].arrayValue.map { Movement(json: $0) }
+            
+            if let compatibleMovements = movements.first(where: { $0.animationName == .resting })?.compatibleMovements {
+                
+                self.compatibleMovements = movements.filter({ compatibleMovements.contains($0.name) })
+            }
+        }
+        
         if compatibleMovements.count == 0 {
 
             showEmptyView()

@@ -14,13 +14,11 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
 
     @IBOutlet weak var scnView: SCNView!
     @IBOutlet weak var editBarHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var playAnimationButton: UIButton!
+    @IBOutlet weak var repeatAnimationButton: UIButton!
     
     let animationHelper = AnimationHelper()
-    
-    let readinessAnimation = Assets.animation(named: .readiness)
-    let restingAnimation = Assets.animation(named: .resting)
-    let jumpAnimation = Assets.animation(named: .jump)
-    let catchBallGroundAnimation = Assets.animation(named: .catchBallNearGround)
+    let brain = DataModelManager.shared
     
     var goalkeeperRig: SCNNode!
     
@@ -49,11 +47,17 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        brain.playLoadedAnimations = { [unowned self] in
+            
+            self.goalkeeperRig.removeAllActions()
+            self.goalkeeperRig.removeAllAnimations()
+            self.animationProcessHandling(self.playAnimationButton)
+        }
+        
         setupUI()
         setupScene()
-        //setupGestureRecognizer()
         // Comment to enter demo mode
-        //setupNodes()
+        setupNodes()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -78,20 +82,11 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
         navigationItem.rightBarButtonItem = createBarButtonItem
     }
     
-//    func setupGestureRecognizer() {
-//        
-//        let gr = UITapGestureRecognizer(target: self, action: #selector(addAnimation(recognizer:)))
-//        
-//        gr.delegate = self
-//        gr.numberOfTapsRequired = 2
-//        scnView.addGestureRecognizer(gr)
-//    }
-    
     func setupScene() {
     
         // Change to enter demo mode
-      //  scnView.scene = scnScene
-        scnView.scene = testScene
+        scnView.scene = scnScene
+        //scnView.scene = testScene
         //scnView.delegate = self
         scnView.allowsCameraControl = true
         scnView.showsStatistics = true
@@ -113,34 +108,18 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
     func saveExercise() {
         
         editingMode = false
+        DataModelManager.shared.saveCreatedAnimations()
     }
     
-    func addAnimations() {
+    func play(movements: [Movement]) {
         
-        
-        let animations = Array<CAAnimation>(repeating: jumpAnimation, count: 2)
-        
-        var animationsSequence: [CAAnimation] = []
-        
-        animationsSequence.append(contentsOf: animations)
-        
-        print("🍐 Start positon \(goalkeeperRig.presentation.position)")
-        
-        animationHelper.playAnimations(animations, attachedTo: goalkeeperRig) {
+        animationHelper.playMovements(movements, attachedTo: goalkeeperRig) {
             
             print("🍐 Finish positon \(self.goalkeeperRig.presentation.position)")
             print("Finished playing animations")
         }
         
-//        let waitAnimation = SCNAction.wait(duration: 25/24)
-//        let moveAnimation = SCNAction.move(by: SCNVector3(0, -2.485, 0), duration: 16/24)
-//        let moveAnimation = SCNAction.move(by: SCNVector3(0, -2.485, 0), duration: 10)
-//        
-//        let group = SCNAction.group([moveAnimation])
-//        mountNode.runAction(group)
-        
-        
-        print("We have \(animationsSequence.count) more to play")
+        //print("We have \(animationsSequence.count) more to play")
     }
     
     // MARK: - Actions
@@ -151,7 +130,7 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
         
         switch sender.isSelected {
         case true:
-            addAnimations()
+            play(movements: brain.movementsSelectedByUser)
         case false:
             scnScene.isPaused = true
         }
@@ -177,11 +156,15 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
         
         guard let rootController = vc.visibleViewController as? AvailableAnimationsViewController else { return }
         
-        let movements = Assets.data(from: "Movements")["movements"].arrayValue.map { Movement(json: $0) }
-        
-        if let compatibleMovements = movements.filter({ $0.animationName == .none }).first?.compatibleMovements {
+        if let lastMovement = brain.movementsSelectedByUser.last {
             
-            rootController.compatibleMovements = movements.filter({ compatibleMovements.contains($0.name) })
+            let movements = Assets.data(from: "Movements")["movements"].arrayValue.map { Movement(json: $0) }
+            
+            if let compatibleMovements = movements.first(where: { $0.animationName == lastMovement.animationName })?.compatibleMovements {
+                
+                print("😎 \(compatibleMovements)")
+                rootController.compatibleMovements = movements.filter { compatibleMovements.contains($0.name) }
+            }
         }
         
         present(vc, animated: true, completion:nil)
@@ -194,16 +177,3 @@ extension ExercisePresentationViewController: NewExerciseDelegate {
         editingMode = isCreated
     }
 }
-
-//extension ExercisePresentationViewController: SCNSceneRendererDelegate {
-//    
-//    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-//        
-//        
-//    }
-//    
-//    func renderer(_ renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: TimeInterval) {
-//        
-//        renderer.scene
-//    }
-//}

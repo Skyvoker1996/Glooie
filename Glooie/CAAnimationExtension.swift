@@ -9,7 +9,7 @@
 import SceneKit
 
 extension CAAnimation {
-    class func animation(withSceneName name: String) -> CAAnimation {
+    class func animation(withSceneName name: String, repeats: Int) -> CAAnimation {
 
         guard let scene = SCNScene(named: name) else {
             fatalError("Failed to find scene with name \(name).")
@@ -31,7 +31,7 @@ extension CAAnimation {
         //foundAnimation.fillMode = kCAFillModeForwards
         foundAnimation.fadeInDuration = 0.6
         foundAnimation.fadeOutDuration = 0.6
-        foundAnimation.repeatCount = 1
+        foundAnimation.repeatCount = Float(repeats)
         
         return foundAnimation
     }

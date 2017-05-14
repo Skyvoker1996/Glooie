@@ -58,7 +58,7 @@ class NewExerciseViewController: BasicViewController {
             
             navigationController?.dismiss(animated: true) {
                 
-                self.brain.saveNewExercise()
+                self.brain.save(exercise: newExercise)
                 self.delegate?.willCreateNewExercise(true)
             }
         default:

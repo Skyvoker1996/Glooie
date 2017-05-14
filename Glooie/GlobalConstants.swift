@@ -73,9 +73,35 @@ enum AnimationNames: String {
     
     case resting = "resting.dae"
     case readiness = "readiness.dae"
-    case jump = "jump.dae"
-    case catchBallNearGround = "catch ball near the ground (standing on knees)_left.dae"
+    case jumpForward = "jump.dae"
+    case catchBallNearGroundOnKneesLeft = "catch ball near the ground (standing on knees)_left.dae"
+    case catchBallNearGroundOnKneesRight = "catch ball near the ground (standing on knees)_right.dae"
+    case catchBallStandingStraight = "catch ball in straight position.dae"
+    case catchBallInAirKneesRight = "catch ball in air (standing on knees)_right.dae"
+    case catchBallInAirKneesLeft = "catch ball in air (standing on knees)_left.dae"
+    case catchBallStandingStraightMiddle = "catch ball on middle height.dae"
+    case catchBallStraightStraightDown = "catch ball straight near the ground_right_side.dae"
+    case catchBallInAirLeft = "catch high ball left_side.dae"
+    case catchBallInAirRight = "catch high ball right_side.dae"
+    case catchBallNearGroundLeft = "catch low ball left_side.dae"
+    case catchBallNearGroundRight = "catch low ball right_side.dae"
+    case getUpFromKnees = "get up from knees.dae"
+    case leanHead = "lean head from side to side.dae"
+    case sidestepLeft = "sidestep_left.dae"
+    case sidestepRight = "sidestep_right.dae"
+    case standOnKnees = "stand on knees.dae"
+    case somersault = "somersault.dae"
     case none
+    
+    func animation(amountOfRepeats: Int) -> CAAnimation {
+        
+        switch self {
+        case .none:
+            return CAAnimation()
+        default:
+            return Assets.animation(named: self, repeats: amountOfRepeats)
+        }
+    }
 }
 
 enum Segues: String {

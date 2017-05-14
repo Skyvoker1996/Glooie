@@ -18,8 +18,8 @@ struct Assets {
     private static let animations = basePath + "Animations/"
     
     
-    static func animation(named name: AnimationNames) -> CAAnimation {
-        return CAAnimation.animation(withSceneName: animations + name.rawValue)
+    static func animation(named name: AnimationNames, repeats: Int) -> CAAnimation {
+        return CAAnimation.animation(withSceneName: animations + name.rawValue, repeats: repeats)
     }
     
     static func scene(named name: SceneNames, fromDeaFile: Bool = true) -> SCNScene {

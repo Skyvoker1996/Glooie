@@ -14,7 +14,12 @@ class DataModelManager {
     static let shared = DataModelManager()
     
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private(set) var currentExercise: Exercise?
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var editBarNeedsUpdate: ((_ shouldScroll: Bool)-> Void)?
+    var playLoadedAnimations: (()-> Void)?
     
     private var movements: [Movement] = [] {
         
@@ -47,20 +52,76 @@ class DataModelManager {
         }
     }
     
-    var editBarNeedsUpdate: ((_ shouldScroll: Bool)-> Void)?
-    
     private init() {
         
     }
     
-    func saveNewExercise() {
+    func save(exercise: Exercise) {
     
+        movements.removeAll()
+        currentExercise = exercise
         appDelegate.saveContext()
     }
     
     func remove(exercise: Exercise) {
         
         context.delete(exercise)
-        saveNewExercise()
+        appDelegate.saveContext()
+    }
+    
+    func saveCreatedAnimations() {
+        
+        let duration = movements.reduce(0) { (currentResult, movement) -> Double in
+            
+            currentResult + (movement.amountOfFrames / GlobalConfig.AnimationFPS) * Double(movement.amountOfRepeats)
+        }
+        
+        currentExercise?.duration = duration
+        
+        for (index, movement) in movements.enumerated() {
+            
+            let animation = Animation(context: context)
+            animation.amountOfRepeats = Int32(movement.amountOfRepeats)
+            animation.exercise = currentExercise
+            animation.name = movement.animationName.rawValue
+            animation.position = Int32(index)
+        }
+        
+        appDelegate.saveContext()
+        
+        print("Duration of animation is \(duration)")
+    }
+    
+    func userSelected(exercise: Exercise, with animations: [Animation]) {
+        
+        movements.removeAll()
+        currentExercise = exercise
+        
+        let availableMovements = Assets.data(from: "Movements")["movements"].arrayValue.map { Movement(json: $0) }
+        
+        for animation in animations {
+            
+            guard let movement = availableMovements.first(where: { $0.animationName.rawValue == animation.name }) else { return }
+            
+            movement.amountOfRepeats = Int(animation.amountOfRepeats)
+            movements.append(movement)
+            
+            print("◼︎ user wants to load animation with name \(animation.name), amount of repeats \(animation.amountOfRepeats) and position \(animation.position)")
+        }
+        
+        playLoadedAnimations?()
+    }
+    
+    func testLoadOfAllAnimations() {
+    
+        do {
+            let animations = try context.fetch(Animation.fetchRequest())
+            
+            print("We loaded \(animations.count) animations")
+            
+        } catch {
+            print("Fetching Failed")
+        }
+    
     }
 }

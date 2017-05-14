@@ -12,10 +12,10 @@
         <attribute name="exerciseDescription" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="type" attributeType="String" syncable="YES"/>
-        <relationship name="animations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Animation" inverseName="exercise" inverseEntity="Animation" syncable="YES"/>
+        <relationship name="animations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Animation" inverseName="exercise" inverseEntity="Animation" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Exercise" positionX="-657" positionY="-0" width="128" height="133"/>
         <element name="Animation" positionX="-335" positionY="261" width="128" height="103"/>
+        <element name="Exercise" positionX="-657" positionY="-0" width="128" height="135"/>
     </elements>
 </model>

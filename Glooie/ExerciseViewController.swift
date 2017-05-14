@@ -51,6 +51,7 @@ class ExerciseViewController: UITableViewController {
         
         let request = NSFetchRequest<Exercise>(entityName: "Exercise")
         let dateCreationSort = NSSortDescriptor(key: "dateOfCreation", ascending: true)
+        request.returnsObjectsAsFaults = false
         request.sortDescriptors = [dateCreationSort]
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: brain.context, sectionNameKeyPath: nil, cacheName: nil)
@@ -144,6 +145,15 @@ extension ExerciseViewController: NSFetchedResultsControllerDelegate {
 
 extension ExerciseViewController {
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let exercise = fetchedResultsController?.object(at: indexPath),
+           let animations = exercise.animations?.allObjects as? [Animation]
+            {
+            brain.userSelected(exercise: exercise, with: animations.sorted(by: { $0.position < $1.position }))
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         switch editingStyle {
@@ -186,6 +196,5 @@ extension ExerciseViewController {
         
         return UITableViewCell()
     }
-
 }
 
