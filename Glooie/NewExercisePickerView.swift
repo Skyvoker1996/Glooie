@@ -15,7 +15,7 @@ class NewExercisePickerView: UIView {
     
     var exercise: ExerciseType = ExerciseType(json: []) {
         didSet {
-            exerciseTypeTitle.text = exercise.type
+            exerciseTypeTitle.text = exercise.type.rawValue
             exerciseTypeImageView.image = exercise.image
         }
     }

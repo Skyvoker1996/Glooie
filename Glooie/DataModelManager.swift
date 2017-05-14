@@ -6,11 +6,15 @@
 //  Copyright © 2017 Mykhailo Herasimov. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import CoreData
 
 class DataModelManager {
     
     static let shared = DataModelManager()
+    
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     private var movements: [Movement] = [] {
         
@@ -47,5 +51,16 @@ class DataModelManager {
     
     private init() {
         
+    }
+    
+    func saveNewExercise() {
+    
+        appDelegate.saveContext()
+    }
+    
+    func remove(exercise: Exercise) {
+        
+        context.delete(exercise)
+        saveNewExercise()
     }
 }

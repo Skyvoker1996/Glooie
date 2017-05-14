@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import CoreData
 
 protocol NewExerciseDelegate: class {
     
@@ -21,6 +22,8 @@ class NewExerciseViewController: BasicViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     
     weak var delegate: NewExerciseDelegate?
+    
+    let brain = DataModelManager.shared
     
     let exerciseTypes: [ExerciseType] = Assets.data(from: "ExerciseTypes")["exerciseTypes"].arrayValue.map { ExerciseType(json: $0)}
     
@@ -47,8 +50,15 @@ class NewExerciseViewController: BasicViewController {
                 return
             }
             
+            let newExercise = Exercise(context: brain.context)
+            newExercise.name = exerciseTitleLabel.text
+            newExercise.exerciseDescription = descriptionTextView.text
+            newExercise.type = exerciseTypes[exerciseTypePickerView.selectedRow(inComponent: 0)].type.rawValue
+            newExercise.dateOfCreation = Date() as NSDate
+            
             navigationController?.dismiss(animated: true) {
                 
+                self.brain.saveNewExercise()
                 self.delegate?.willCreateNewExercise(true)
             }
         default:

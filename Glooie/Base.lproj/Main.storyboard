@@ -328,6 +328,7 @@
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.20784313730000001" green="0.57254901960000004" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="disclosureButton" destination="T9p-tB-tR3" id="0tC-dD-fLM"/>
                                     <outlet property="durationLabel" destination="h2V-Hg-r1d" id="Rzu-EZ-IXX"/>
                                     <outlet property="nameLabel" destination="JlX-Jk-kv0" id="Rar-Pz-kS9"/>
                                     <outlet property="typeImageView" destination="XP8-bi-xpb" id="FXD-k3-OEd"/>
@@ -716,7 +717,7 @@
         <scene sceneID="Kv1-Im-433">
             <objects>
                 <collectionViewController id="mDe-de-Gjk" customClass="EditBarCollectionViewController" customModule="Glooie" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="okm-Sq-j5x">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="okm-Sq-j5x">
                         <rect key="frame" x="0.0" y="0.0" width="702.5" height="0.0"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

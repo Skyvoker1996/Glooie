@@ -2,44 +2,44 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-<key>exerciseTypes</key>
-<array>
-	<dict>
-		<key>type</key>
-		<string>Agility</string>
-		<key>image</key>
-		<string>agility filled</string>
-	</dict>
-    <dict>
-        <key>type</key>
-        <string>Concentration</string>
-        <key>image</key>
-        <string>concentration</string>
-    </dict>
-    <dict>
-        <key>type</key>
-        <string>Jumping ability</string>
-        <key>image</key>
-        <string>jumping ability</string>
-    </dict>
-    <dict>
-        <key>type</key>
-        <string>Reaction</string>
-        <key>image</key>
-        <string>reaction</string>
-    </dict>
-    <dict>
-        <key>type</key>
-        <string>Speed</string>
-        <key>image</key>
-        <string>speed</string>
-    </dict>
-    <dict>
-        <key>type</key>
-        <string>Stamina</string>
-        <key>image</key>
-        <string>stamina</string>
-    </dict>
-</array>
+	<key>exerciseTypes</key>
+	<array>
+		<dict>
+			<key>type</key>
+			<string>Agility</string>
+			<key>image</key>
+			<string>agility filled</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>Concentration</string>
+			<key>image</key>
+			<string>concentration</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>Jumping ability</string>
+			<key>image</key>
+			<string>jumping ability</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>Reaction</string>
+			<key>image</key>
+			<string>reaction</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>Speed</string>
+			<key>image</key>
+			<string>speed</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>Stamina</string>
+			<key>image</key>
+			<string>stamina</string>
+		</dict>
+	</array>
 </dict>
 </plist>

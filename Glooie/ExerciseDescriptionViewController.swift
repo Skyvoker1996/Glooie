@@ -12,15 +12,11 @@ class ExerciseDescriptionViewController: BasicViewController {
 
     @IBOutlet private weak var descriptionTextView: UITextView!
     
-    var exerciseDescription: String = String() {
-        didSet {
-            descriptionTextView.text = exerciseDescription
-        }
-    }
+    var exerciseDescription: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        descriptionTextView.text = exerciseDescription
     }
 }

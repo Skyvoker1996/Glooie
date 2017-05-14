@@ -7,24 +7,40 @@
 //
 
 import UIKit
+import CoreData
 
 class ExerciseDescriptionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var typeImageView: UIImageView!
+    @IBOutlet weak var disclosureButton: UIButton!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var exercise: Exercise? = nil {
+        
+        didSet {
+            
+            guard let exercise = exercise else { return }
+            
+            nameLabel.text = exercise.name
+            
+            let type = ExerciseType.Types(rawValue: exercise.type ?? String()) ?? . none
+            let exerciseType = Assets.data(from: "ExerciseTypes")["exerciseTypes"].arrayValue.map { ExerciseType(json: $0)}.filter { $0.type == type }.first
+            
+            typeLabel.textColor = type.typeColor()
+            typeLabel.text = type.rawValue
+            
+            let duration = Measurement(value: exercise.duration, unit: UnitDuration.seconds)
+            
+            let formater = MeasurementFormatter()
+            formater.unitOptions = .naturalScale
+            formater.unitStyle = .short
+            durationLabel.text = String(format:"Duration: %@", formater.string(from: duration))
+            
+            typeImageView.image = exerciseType?.image
+            
+            disclosureButton.tintColor = type.typeColor()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
