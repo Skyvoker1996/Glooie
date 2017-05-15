@@ -23,13 +23,12 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
     var goalkeeperRig: SCNNode!
     
     let scnScene: SCNScene = Assets.scene(named: .main)
-    let testScene = SCNScene(named: "SceneKit Scene.scn")
     
     var editingMode: Bool = false {
         
         didSet {
             
-            let createBarButtonItem: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createExercise(_:)))
+            let createBarButtonItem: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openCreateExerciseVC(_:)))
             let saveBarButtomItem = UIBarButtonItem(image: #imageLiteral(resourceName: "finish flag filled"), style: .plain, target: self, action: #selector(saveExercise))
             
             navigationItem.rightBarButtonItem = editingMode ? saveBarButtomItem : createBarButtonItem
@@ -44,19 +43,31 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
         }
     }
     
+    fileprivate var preparedAvailableMovements: [Movement] {
+        
+        get {
+            
+            guard let lastMovement = brain.movementsSelectedByUser.last,
+                  let compatibleMovements = brain.allAvailableMovements.first(where: { $0.animationName == lastMovement.animationName })?.compatibleMovements
+            else { return [] }
+           
+            return brain.allAvailableMovements.filter { compatibleMovements.contains($0.name) }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        brain.playLoadedAnimations = { [unowned self] in
+        brain.playLoadedAnimations = { [weak self] in
             
-            self.goalkeeperRig.removeAllActions()
-            self.goalkeeperRig.removeAllAnimations()
-            self.animationProcessHandling(self.playAnimationButton)
+            guard let strongSelf = self else { return }
+            
+            strongSelf.resetPosition()
+            strongSelf.play(movements: strongSelf.brain.movementsSelectedByUser)
         }
         
         setupUI()
         setupScene()
-        // Comment to enter demo mode
         setupNodes()
     }
 
@@ -78,19 +89,16 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
     
     func setupUI() {
         
-        let createBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createExercise(_:)))
+        let createBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openCreateExerciseVC(_:)))
         navigationItem.rightBarButtonItem = createBarButtonItem
     }
     
     func setupScene() {
     
-        // Change to enter demo mode
         scnView.scene = scnScene
-        //scnView.scene = testScene
-        //scnView.delegate = self
         scnView.allowsCameraControl = true
         scnView.showsStatistics = true
-        scnView.preferredFramesPerSecond = 24
+        scnView.preferredFramesPerSecond = Int(GlobalConfig.AnimationFPS)
     }
     
     func setupNodes() {
@@ -100,7 +108,7 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
     
     // MARK: - Others
     
-    func createExercise(_ sender: Any) {
+    func openCreateExerciseVC(_ sender: Any) {
         
         performSegue(withIdentifier: Segues.newExercise.rawValue, sender: sender)
     }
@@ -111,29 +119,42 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
         DataModelManager.shared.saveCreatedAnimations()
     }
     
+    func resetPosition() {
+        
+        goalkeeperRig.position = SCNVector3(0, 0, 0)
+        goalkeeperRig.removeAllActions()
+        goalkeeperRig.removeAllAnimations()
+        playAnimationButton.isSelected = true
+    }
+    
     func play(movements: [Movement]) {
         
-        animationHelper.playMovements(movements, attachedTo: goalkeeperRig) {
+        animationHelper.playMovements(movements, attachedTo: goalkeeperRig) { [weak self] in
             
-            print("🍐 Finish positon \(self.goalkeeperRig.presentation.position)")
+            guard let strongSelf = self else { return }
+            
+            strongSelf.playAnimationButton.isHidden = true
+            strongSelf.repeatAnimationButton.isHidden = false
+            
             print("Finished playing animations")
         }
-        
-        //print("We have \(animationsSequence.count) more to play")
     }
     
     // MARK: - Actions
     
-    @IBAction func animationProcessHandling(_ sender: UIButton) {
+    @IBAction func repeatMovements(_ sender: UIButton) {
+        
+        playAnimationButton.isHidden = false
+        playAnimationButton.isSelected = true
+        repeatAnimationButton.isHidden = true
+        resetPosition()
+        play(movements: brain.movementsSelectedByUser)
+    }
+    
+    @IBAction func playPauseMovements(_ sender: UIButton) {
         
         sender.isSelected = !sender.isSelected
-        
-        switch sender.isSelected {
-        case true:
-            play(movements: brain.movementsSelectedByUser)
-        case false:
-            scnScene.isPaused = true
-        }
+        scnScene.isPaused = !sender.isSelected
     }
     
     @IBAction func showAvailableAnimations(_ sender: UILongPressGestureRecognizer) {
@@ -156,18 +177,9 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
         
         guard let rootController = vc.visibleViewController as? AvailableAnimationsViewController else { return }
         
-        if let lastMovement = brain.movementsSelectedByUser.last {
-            
-            let movements = Assets.data(from: "Movements")["movements"].arrayValue.map { Movement(json: $0) }
-            
-            if let compatibleMovements = movements.first(where: { $0.animationName == lastMovement.animationName })?.compatibleMovements {
-                
-                print("😎 \(compatibleMovements)")
-                rootController.compatibleMovements = movements.filter { compatibleMovements.contains($0.name) }
-            }
-        }
+        rootController.compatibleMovements = preparedAvailableMovements
         
-        present(vc, animated: true, completion:nil)
+        present(vc, animated: true, completion: nil)
     }
 }
 

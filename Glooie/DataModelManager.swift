@@ -16,6 +16,12 @@ class DataModelManager {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private(set) var currentExercise: Exercise?
     
+    let allAvailableExerciseTypes: [ExerciseType] = Assets.data(from: "ExerciseTypes")["exerciseTypes"].arrayValue.map { ExerciseType(json: $0)}
+    
+    let allAvailableMovementTypes = Assets.data(from: "MovementTypes")["types"].arrayValue.map { MovementType(json: $0) }
+    
+    let allAvailableMovements = Assets.data(from: "Movements")["movements"].arrayValue.map { Movement(json: $0) }
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var editBarNeedsUpdate: ((_ shouldScroll: Bool)-> Void)?
@@ -97,11 +103,9 @@ class DataModelManager {
         movements.removeAll()
         currentExercise = exercise
         
-        let availableMovements = Assets.data(from: "Movements")["movements"].arrayValue.map { Movement(json: $0) }
-        
         for animation in animations {
             
-            guard let movement = availableMovements.first(where: { $0.animationName.rawValue == animation.name }) else { return }
+            guard let movement = allAvailableMovements.first(where: { $0.animationName.rawValue == animation.name }) else { return }
             
             movement.amountOfRepeats = Int(animation.amountOfRepeats)
             movements.append(movement)
@@ -110,18 +114,5 @@ class DataModelManager {
         }
         
         playLoadedAnimations?()
-    }
-    
-    func testLoadOfAllAnimations() {
-    
-        do {
-            let animations = try context.fetch(Animation.fetchRequest())
-            
-            print("We loaded \(animations.count) animations")
-            
-        } catch {
-            print("Fetching Failed")
-        }
-    
     }
 }

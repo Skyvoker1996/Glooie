@@ -45,12 +45,15 @@
                                 <state key="normal" image="play filled"/>
                                 <state key="selected" image="pause filled"/>
                                 <connections>
-                                    <action selector="animationProcessHandling:" destination="FKz-9C-s86" eventType="touchUpInside" id="WCI-8L-1Wu"/>
+                                    <action selector="playPauseMovements:" destination="FKz-9C-s86" eventType="touchUpInside" id="FZb-1n-qz9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exB-GD-NbE">
-                                <rect key="frame" x="409" y="675" width="37" height="37"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exB-GD-NbE">
+                                <rect key="frame" x="333.5" y="668.5" width="37" height="37"/>
                                 <state key="normal" image="restart filled"/>
+                                <connections>
+                                    <action selector="repeatMovements:" destination="FKz-9C-s86" eventType="touchUpInside" id="n9Y-qO-wzj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,11 +64,11 @@
                             <constraint firstItem="qJh-pE-bVL" firstAttribute="top" secondItem="mBM-l2-hza" secondAttribute="bottom" id="M8h-sq-sOd"/>
                             <constraint firstAttribute="trailing" secondItem="qJh-pE-bVL" secondAttribute="trailing" id="O3F-d0-8fD"/>
                             <constraint firstItem="mPi-kV-0E6" firstAttribute="top" secondItem="T9T-CG-AgO" secondAttribute="bottom" id="TjA-fK-0dc"/>
+                            <constraint firstItem="exB-GD-NbE" firstAttribute="centerX" secondItem="oS0-7J-jjo" secondAttribute="centerX" id="Tve-A5-cWk"/>
                             <constraint firstItem="T9T-CG-AgO" firstAttribute="top" secondItem="qJh-pE-bVL" secondAttribute="bottom" id="Vnp-Bv-bAK"/>
                             <constraint firstItem="oS0-7J-jjo" firstAttribute="centerY" secondItem="qJh-pE-bVL" secondAttribute="centerY" multiplier="1.65" id="Y9w-pY-ES9"/>
-                            <constraint firstItem="exB-GD-NbE" firstAttribute="baseline" secondItem="oS0-7J-jjo" secondAttribute="baseline" id="b3J-eY-bbM"/>
                             <constraint firstItem="T9T-CG-AgO" firstAttribute="leading" secondItem="UFe-Q3-A6b" secondAttribute="leading" id="hrM-QY-eP3"/>
-                            <constraint firstItem="exB-GD-NbE" firstAttribute="leading" secondItem="oS0-7J-jjo" secondAttribute="trailing" constant="32" id="pgJ-SC-69N"/>
+                            <constraint firstItem="exB-GD-NbE" firstAttribute="centerY" secondItem="oS0-7J-jjo" secondAttribute="centerY" id="pzo-ro-5fe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Presentation" id="6xt-Po-JVB"/>
@@ -719,7 +722,7 @@
         <scene sceneID="Kv1-Im-433">
             <objects>
                 <collectionViewController id="mDe-de-Gjk" customClass="EditBarCollectionViewController" customModule="Glooie" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="okm-Sq-j5x">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="okm-Sq-j5x">
                         <rect key="frame" x="0.0" y="0.0" width="703" height="0.0"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

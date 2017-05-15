@@ -33,7 +33,6 @@
 		848874931EC7D96F00DF7340 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848874921EC7D96F00DF7340 /* UITableViewExtension.swift */; };
 		849E7BE11EB6409400F8E98C /* ExerciseDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E7BE01EB6409400F8E98C /* ExerciseDescriptionTableViewCell.swift */; };
 		849E7BE31EB6750300F8E98C /* ExerciseDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E7BE21EB6750300F8E98C /* ExerciseDescriptionViewController.swift */; };
-		849E7BE51EB68AE100F8E98C /* SceneKit Scene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 849E7BE41EB68AE100F8E98C /* SceneKit Scene.scn */; };
 		849E7BE71EB69B5A00F8E98C /* NewExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E7BE61EB69B5A00F8E98C /* NewExerciseViewController.swift */; };
 		849E7BE91EB69BA500F8E98C /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E7BE81EB69BA500F8E98C /* BasicViewController.swift */; };
 		849E7BED1EB7A04F00F8E98C /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E7BEC1EB7A04E00F8E98C /* AnimationHelper.swift */; };
@@ -82,7 +81,6 @@
 		848874921EC7D96F00DF7340 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		849E7BE01EB6409400F8E98C /* ExerciseDescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		849E7BE21EB6750300F8E98C /* ExerciseDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDescriptionViewController.swift; sourceTree = "<group>"; };
-		849E7BE41EB68AE100F8E98C /* SceneKit Scene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "SceneKit Scene.scn"; sourceTree = "<group>"; };
 		849E7BE61EB69B5A00F8E98C /* NewExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewExerciseViewController.swift; sourceTree = "<group>"; };
 		849E7BE81EB69BA500F8E98C /* BasicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		849E7BEC1EB7A04E00F8E98C /* AnimationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
@@ -268,7 +266,6 @@
 			children = (
 				8445E2E41E71C486009656BA /* assets.xcassets */,
 				843684111EAD6E5D00CEE6E9 /* art.scnassets */,
-				849E7BE41EB68AE100F8E98C /* SceneKit Scene.scn */,
 			);
 			name = "Art assets";
 			sourceTree = "<group>";
@@ -356,7 +353,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8445E2E81E71C486009656BA /* LaunchScreen.storyboard in Resources */,
-				849E7BE51EB68AE100F8E98C /* SceneKit Scene.scn in Resources */,
 				8445E2E51E71C486009656BA /* assets.xcassets in Resources */,
 				843738B91EC4F2C10082A583 /* MovementTypes.plist in Resources */,
 				8445E2E01E71C486009656BA /* Main.storyboard in Resources */,

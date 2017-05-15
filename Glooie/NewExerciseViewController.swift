@@ -23,9 +23,8 @@ class NewExerciseViewController: BasicViewController {
     
     weak var delegate: NewExerciseDelegate?
     
-    let brain = DataModelManager.shared
-    
-    let exerciseTypes: [ExerciseType] = Assets.data(from: "ExerciseTypes")["exerciseTypes"].arrayValue.map { ExerciseType(json: $0)}
+    fileprivate let brain = DataModelManager.shared
+    fileprivate let exerciseTypes = DataModelManager.shared.allAvailableExerciseTypes
     
     let textViewPlaceholder = "Enter exercise description"
     

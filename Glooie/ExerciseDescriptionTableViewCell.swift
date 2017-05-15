@@ -26,7 +26,7 @@ class ExerciseDescriptionTableViewCell: UITableViewCell {
             nameLabel.text = exercise.name
             
             let type = ExerciseType.Types(rawValue: exercise.type ?? String()) ?? . none
-            let exerciseType = Assets.data(from: "ExerciseTypes")["exerciseTypes"].arrayValue.map { ExerciseType(json: $0)}.filter { $0.type == type }.first
+            let exerciseType = DataModelManager.shared.allAvailableExerciseTypes.filter { $0.type == type }.first
             
             typeLabel.textColor = type.typeColor()
             typeLabel.text = type.rawValue

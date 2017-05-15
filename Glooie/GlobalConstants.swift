@@ -49,7 +49,7 @@ enum NodeNames: String {
 
 enum SceneNames: String {
     
-    case main = "Goalkeeper animated experements copy.scn"//"Goalkeeper animated experements.dae"
+    case main = "Main.scn"//"Goalkeeper animated experements.dae"
 
 }
 

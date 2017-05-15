@@ -16,10 +16,8 @@ class AvailableAnimationsViewController: BasicViewController {
     
     var compatibleMovements: [Movement] = [] {
         didSet {
-        
-            let allAvailableMovementTypes = Assets.data(from: "MovementTypes")["types"].arrayValue.map { MovementType(json: $0) }
             
-            movementTypes = allAvailableMovementTypes.filter { type in
+            movementTypes = brain.allAvailableMovementTypes.filter { type in
                 
                 compatibleMovements.contains { $0.movementType == type.type }
             }
@@ -41,14 +39,10 @@ class AvailableAnimationsViewController: BasicViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if brain.movementsSelectedByUser.count == 0 {
-            
-            let movements = Assets.data(from: "Movements")["movements"].arrayValue.map { Movement(json: $0) }
-            
-            if let compatibleMovements = movements.first(where: { $0.animationName == .resting })?.compatibleMovements {
+        if brain.movementsSelectedByUser.count == 0,
+            let compatibleMovements = brain.allAvailableMovements.first(where: { $0.animationName == .resting })?.compatibleMovements {
                 
-                self.compatibleMovements = movements.filter({ compatibleMovements.contains($0.name) })
-            }
+            self.compatibleMovements = brain.allAvailableMovements.filter { compatibleMovements.contains($0.name) }
         }
         
         if compatibleMovements.count == 0 {
