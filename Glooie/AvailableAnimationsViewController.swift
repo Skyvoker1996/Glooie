@@ -139,6 +139,7 @@ extension AvailableAnimationsViewController: MovementTypeTableViewCellDelegate {
         guard movementSelectedByUser != nil else { return }
         
         brain.movementsSelectedByUser.append(movementSelectedByUser!)
+        brain.playLoaded?([movementSelectedByUser!], false)
         
         dismiss(animated: true, completion: nil)
     }

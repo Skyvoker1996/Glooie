@@ -38,9 +38,9 @@ class AnimationHelper {
                 
                 if let transition = movement.transition {
                     
-                    let actions = Array<SCNAction>(repeating: SCNAction.move(by: transition, duration: (movement.amountOfFrames-5)/30), count: movement.amountOfRepeats)
+                    let actions = Array<SCNAction>(repeating: SCNAction.move(by: transition, duration: movement.amountOfFrames/GlobalConfig.AnimationFPS), count: movement.amountOfRepeats)
                     let actionSequence = SCNAction.sequence(actions)
-                    actionSequence.timingMode = .easeInEaseOut
+                    actionSequence.timingMode = .easeIn
                     
                     node.runAction(actionSequence)
                 }

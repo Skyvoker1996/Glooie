@@ -10,6 +10,8 @@ import UIKit
 
 class AvaliableMovementsTableViewController: UITableViewController {
     
+    private let brain = DataModelManager.shared
+    
     var movements: [Movement] = []
     
     private var customDataStructure: [[Movement]] = [[]] {
@@ -21,7 +23,10 @@ class AvaliableMovementsTableViewController: UITableViewController {
     
     func updateBrainData(with movement: Movement) {
         
-        DataModelManager.shared.movementsSelectedByUser.append(movement)
+        
+        brain.movementsSelectedByUser.append(movement)
+        brain.playLoaded?([movement], false)
+        
         navigationController?.dismiss(animated: true, completion: nil)
     }
     

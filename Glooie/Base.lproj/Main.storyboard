@@ -24,7 +24,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" allowsCameraControl="YES" preferredRenderingAPI="1" translatesAutoresizingMaskIntoConstraints="NO" id="qJh-pE-bVL">
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preferredRenderingAPI="1" translatesAutoresizingMaskIntoConstraints="NO" id="qJh-pE-bVL">
                                 <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -41,7 +41,7 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oS0-7J-jjo">
-                                <rect key="frame" x="327" y="662" width="50" height="50"/>
+                                <rect key="frame" x="327.5" y="662" width="50" height="50"/>
                                 <state key="normal" image="play filled"/>
                                 <state key="selected" image="pause filled"/>
                                 <connections>
@@ -49,7 +49,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exB-GD-NbE">
-                                <rect key="frame" x="333.5" y="668.5" width="37" height="37"/>
+                                <rect key="frame" x="334" y="668.5" width="37" height="37"/>
                                 <state key="normal" image="restart filled"/>
                                 <connections>
                                     <action selector="repeatMovements:" destination="FKz-9C-s86" eventType="touchUpInside" id="n9Y-qO-wzj"/>

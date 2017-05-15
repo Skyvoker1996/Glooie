@@ -43,8 +43,9 @@ enum ViewNames: String {
 
 enum NodeNames: String {
     
-    case rig = "rig"
-    case root = "root"
+    case rig
+    case camera
+    case follow_camera
 }
 
 enum SceneNames: String {

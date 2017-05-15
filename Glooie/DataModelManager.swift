@@ -25,7 +25,7 @@ class DataModelManager {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var editBarNeedsUpdate: ((_ shouldScroll: Bool)-> Void)?
-    var playLoadedAnimations: (()-> Void)?
+    var playLoaded: ((_ movements: [Movement], _ characterNeedsToBeReset: Bool)-> Void)?
     
     private var movements: [Movement] = [] {
         
@@ -113,6 +113,6 @@ class DataModelManager {
             print("◼︎ user wants to load animation with name \(animation.name), amount of repeats \(animation.amountOfRepeats) and position \(animation.position)")
         }
         
-        playLoadedAnimations?()
+        playLoaded?(movementsSelectedByUser, true)
     }
 }

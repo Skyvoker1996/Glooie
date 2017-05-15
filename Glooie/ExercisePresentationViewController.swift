@@ -20,6 +20,8 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
     let animationHelper = AnimationHelper()
     let brain = DataModelManager.shared
     
+    var cameraNode: SCNNode!
+    var followCameraNode: SCNNode!
     var goalkeeperRig: SCNNode!
     
     let scnScene: SCNScene = Assets.scene(named: .main)
@@ -38,6 +40,10 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
                 
                 self.view.layoutIfNeeded()
             }, completion: nil)
+            
+            playAnimationButton.isHidden = editingMode
+            playAnimationButton.isSelected = editingMode
+            repeatAnimationButton.isHidden = editingMode
             
             print("🍐 triggered edit mode")
         }
@@ -58,12 +64,12 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        brain.playLoadedAnimations = { [weak self] in
+        brain.playLoaded = { [weak self] movements, needsToReset in
             
             guard let strongSelf = self else { return }
             
-            strongSelf.resetPosition()
-            strongSelf.play(movements: strongSelf.brain.movementsSelectedByUser)
+            _ = needsToReset ? strongSelf.resetPositionAndUI() : Void()
+            strongSelf.play(movements: movements)
         }
         
         setupUI()
@@ -96,14 +102,21 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
     func setupScene() {
     
         scnView.scene = scnScene
-        scnView.allowsCameraControl = true
+        //scnView.allowsCameraControl = true
         scnView.showsStatistics = true
+        scnView.delegate = self
         scnView.preferredFramesPerSecond = Int(GlobalConfig.AnimationFPS)
     }
     
     func setupNodes() {
     
         goalkeeperRig = Assets.node(in: scnScene, named: .rig)
+        cameraNode = Assets.node(in: scnScene, named: .camera)
+        followCameraNode = Assets.node(in: scnScene, named: .follow_camera)
+        
+        //        let cameraConstraint = SCNLookAtConstraint(target: goalkeeperRig)
+        //        cameraConstraint.isGimbalLockEnabled = true
+        //        cameraNode.constraints = [cameraConstraint]
     }
     
     // MARK: - Others
@@ -119,19 +132,22 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
         DataModelManager.shared.saveCreatedAnimations()
     }
     
-    func resetPosition() {
+    func resetPositionAndUI() {
         
-        goalkeeperRig.position = SCNVector3(0, 0, 0)
+        followCameraNode.position = SCNVector3Zero
+        goalkeeperRig.position = SCNVector3Zero
         goalkeeperRig.removeAllActions()
         goalkeeperRig.removeAllAnimations()
+        playAnimationButton.isHidden = false
         playAnimationButton.isSelected = true
+        repeatAnimationButton.isHidden = true
     }
     
     func play(movements: [Movement]) {
         
         animationHelper.playMovements(movements, attachedTo: goalkeeperRig) { [weak self] in
             
-            guard let strongSelf = self else { return }
+            guard let strongSelf = self, !strongSelf.editingMode else { return }
             
             strongSelf.playAnimationButton.isHidden = true
             strongSelf.repeatAnimationButton.isHidden = false
@@ -140,14 +156,22 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
         }
     }
     
+    func updateCamera() {
+        
+        let lerpX = (goalkeeperRig.presentation.position.x - followCameraNode.position.x) * 0.05
+        let lerpY = (goalkeeperRig.presentation.position.y - followCameraNode.position.y) * 0.05
+        let lerpZ = (goalkeeperRig.presentation.position.z - followCameraNode.position.z) * 0.05
+        
+        followCameraNode.position.x += lerpX
+        followCameraNode.position.y += lerpY
+        followCameraNode.position.z += lerpZ
+    }
+    
     // MARK: - Actions
     
     @IBAction func repeatMovements(_ sender: UIButton) {
         
-        playAnimationButton.isHidden = false
-        playAnimationButton.isSelected = true
-        repeatAnimationButton.isHidden = true
-        resetPosition()
+        resetPositionAndUI()
         play(movements: brain.movementsSelectedByUser)
     }
     
@@ -186,6 +210,16 @@ class ExercisePresentationViewController: BasicViewController, UIGestureRecogniz
 extension ExercisePresentationViewController: NewExerciseDelegate {
     
     func willCreateNewExercise(_ isCreated: Bool) {
+        
         editingMode = isCreated
+        isCreated ? resetPositionAndUI() : Void()
+    }
+}
+
+extension ExercisePresentationViewController: SCNSceneRendererDelegate {
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        
+        updateCamera()
     }
 }
