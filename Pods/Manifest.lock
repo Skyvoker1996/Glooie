@@ -1,0 +1,18 @@
+PODS:
+  - IQKeyboardManagerSwift (4.0.8)
+  - SwiftyJSON (3.1.4)
+  - UPCarouselFlowLayout (1.1.1)
+
+DEPENDENCIES:
+  - IQKeyboardManagerSwift
+  - SwiftyJSON
+  - UPCarouselFlowLayout
+
+SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  UPCarouselFlowLayout: 02045c1505d63057fba3d9975be880a8d16bf17d
+
+PODFILE CHECKSUM: bd936f43e7b5dd193af8e466b3253af1abc69014
+
+COCOAPODS: 1.2.1

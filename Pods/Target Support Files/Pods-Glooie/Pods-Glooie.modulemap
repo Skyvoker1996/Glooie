@@ -1,0 +1,6 @@
+framework module Pods_Glooie {
+  umbrella header "Pods-Glooie-umbrella.h"
+
+  export *
+  module * { export * }
+}

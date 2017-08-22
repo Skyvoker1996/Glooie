@@ -2,7 +2,7 @@
 //  ExerciseViewController.swift
 //  Glooie
 //
-//  Created by Michael Gerasimov on 3/9/17.
+//  Created by Mykhailo Herasimov on 3/9/17.
 //  Copyright © 2017 Mykhailo Herasimov. All rights reserved.
 //
 
@@ -184,13 +184,10 @@ extension ExerciseViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: Cells.exerciseCell.rawValue, for: indexPath) as? ExerciseDescriptionTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Cells.exerciseCell.rawValue, for: indexPath) as? ExerciseDescriptionTableViewCell,
+           let exercise = fetchedResultsController?.object(at: indexPath) {
         
-            if let exercise = fetchedResultsController?.object(at: indexPath) {
-            
-                cell.exercise = exercise
-            }
-        
+            cell.exercise = exercise
             return cell
         }
         
