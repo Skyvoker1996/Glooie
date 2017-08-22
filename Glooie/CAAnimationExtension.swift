@@ -28,10 +28,10 @@ extension CAAnimation {
         
         foundAnimation.isRemovedOnCompletion = false
         
-        //foundAnimation.fillMode = kCAFillModeForwards
         foundAnimation.fadeInDuration = 0.6
         foundAnimation.fadeOutDuration = 0.6
         foundAnimation.repeatCount = Float(repeats)
+        //foundAnimation.fillMode = kCAFillModeForwards
         
         return foundAnimation
     }
