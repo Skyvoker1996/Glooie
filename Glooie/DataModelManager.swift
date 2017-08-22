@@ -110,7 +110,7 @@ class DataModelManager {
             movement.amountOfRepeats = Int(animation.amountOfRepeats)
             movements.append(movement)
             
-            print("◼︎ user wants to load animation with name \(animation.name), amount of repeats \(animation.amountOfRepeats) and position \(animation.position)")
+            print("◼︎ user wants to load animation with name \(String(describing: animation.name)), amount of repeats \(animation.amountOfRepeats) and position \(animation.position)")
         }
         
         playLoaded?(movementsSelectedByUser, true)

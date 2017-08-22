@@ -144,6 +144,6 @@ extension EditBarCollectionViewController: EditBarCollectionViewCellDelegate {
         brain.movementsSelectedByUser[indexPath.row].amountOfRepeats = value
         
         let ad = brain.movementsSelectedByUser[indexPath.row]
-        print("🍤 \(ad.name), \(ad.direction), \(ad.amountOfRepeats)")
+        print("🍤 \(ad.name), \(String(describing: ad.direction)), \(ad.amountOfRepeats)")
     }
 }
